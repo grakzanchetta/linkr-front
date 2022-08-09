@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Container = styled.div`
   width: 100vw;
@@ -8,6 +8,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
-`
+`;
 
-export { Container }
+export { Container };

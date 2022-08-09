@@ -1,5 +1,5 @@
-import { Container } from './styles'
+import { Container } from "./styles";
 
 export default function Page({ children }) {
-  return <Container>{children}</Container>
+  return <Container>{children}</Container>;
 }

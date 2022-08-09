@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Container = styled.button`
   width: ${props => props.width};
@@ -13,6 +13,6 @@ const Container = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-`
+`;
 
-export { Container }
+export { Container };

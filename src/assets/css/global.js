@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalCSS = createGlobalStyle`
   *{
@@ -8,5 +8,5 @@ const GlobalCSS = createGlobalStyle`
   a{
     text-decoration: none;
   }
-`
-export default GlobalCSS
+`;
+export default GlobalCSS;

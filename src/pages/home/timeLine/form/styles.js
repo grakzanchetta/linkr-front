@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Container = styled.div`
   width: 42.43vw;
@@ -8,7 +8,7 @@ const Container = styled.div`
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 29px;
-`
+`;
 
 const FormContainer = styled.form`
   width: 100%;
@@ -17,7 +17,7 @@ const FormContainer = styled.form`
   gap: 5px;
 
   h6 {
-    font: normal 300 20px 'Lato', sans-serif;
+    font: normal 300 20px "Lato", sans-serif;
     color: #707070;
     padding-bottom: 10px;
   }
@@ -27,6 +27,6 @@ const FormContainer = styled.form`
     display: flex;
     justify-content: flex-end;
   }
-`
+`;
 
-export { Container, FormContainer }
+export { Container, FormContainer };

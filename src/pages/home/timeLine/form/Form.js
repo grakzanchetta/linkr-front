@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import Input from '../../../../components/input/Input'
-import Button from '../../../../components/button/Button'
-import User from '../user/User'
-import { Container, FormContainer } from './styles'
+import { useState } from "react";
+import Input from "../../../../components/input/Input";
+import Button from "../../../../components/button/Button";
+import User from "../user/User";
+import { Container, FormContainer } from "./styles";
 
 export default function Form({ picture }) {
-  const [url, setUrl] = useState('')
-  const [comment, setComment] = useState('')
+  const [url, setUrl] = useState("");
+  const [comment, setComment] = useState("");
 
   function submit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    console.log({ url, comment })
+    console.log({ url, comment });
   }
 
   return (
@@ -50,5 +50,5 @@ export default function Form({ picture }) {
         </span>
       </FormContainer>
     </Container>
-  )
+  );
 }
