@@ -1,9 +1,10 @@
 import { useState } from "react";
-import userPicture from "../../assets/images/image 3.svg";
+import { useGlobal } from "../../context/globalContext";
 import { Container, ArrowDown, UserContainer, Menu } from "./styles";
 
 export default function Header() {
   const [menu, setMenu] = useState(false);
+  const { global } = useGlobal();
 
   function displayMenu() {
     if (menu === false)
@@ -17,7 +18,7 @@ export default function Header() {
       <h1>linkr</h1>
       <UserContainer>
         <ArrowDown onClick={() => setMenu(!menu)} rotate={displayMenu().rot} />
-        <img src={userPicture} alt="User" />
+        {hanleImage(global)}
       </UserContainer>
       <Menu visibility={displayMenu().visibility} bottom={displayMenu().bottom}>
         Logout
@@ -25,3 +26,6 @@ export default function Header() {
     </Container>
   );
 }
+
+const hanleImage = global =>
+  global.user === null ? "" : <img src={global.user.pictureUrl} alt="User" />;

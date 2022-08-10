@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import getLinkPreview from "../../../../services/getLinkPreview";
+import getLinkPreview from "../../../../services/api/getLinkPreview";
+import notFound from "../../../../assets/images/404.jpg";
 import { LinkContainer, Box } from "./styles";
 
 const getUrl = text => {
@@ -22,8 +23,6 @@ const getUrl = text => {
 export default function LinkPreview({ link }) {
   const [previewData, setPreviewData] = useState(0);
 
-  console.log(previewData);
-
   useEffect(() => {
     const url = getUrl(link);
     if (!url) return null;
@@ -31,13 +30,19 @@ export default function LinkPreview({ link }) {
   }, []);
 
   return previewData === null ? null : (
-    <LinkContainer>
+    <LinkContainer onClick={() => openInNewTab(link)}>
       <Box>
         <h6>{previewData.title}</h6>
         <h5>{previewData.description}</h5>
-        <h3>{previewData.link}</h3>
+        <h3>{hanleLink(previewData.link, link)}</h3>
       </Box>
-      <img src={previewData.image} alt="logo" />
+      <img src={hanleImage(previewData.image)} alt="logo" />
     </LinkContainer>
   );
 }
+
+const hanleImage = image => (image === undefined ? notFound : image);
+
+const hanleLink = (url, link) => (url === undefined ? link : url);
+
+const openInNewTab = url => window.open(url, "_blank", "noopener,noreferrer");

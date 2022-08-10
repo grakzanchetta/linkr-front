@@ -2,16 +2,16 @@ import User from "../user/User";
 import LinkPreview from "../linkPreview/LinkPreview";
 import { Container, UserContainer } from "./styles";
 
-export default function Post({ picture, link }) {
+export default function Post({ data }) {
+  const { username, pictureUrl, postUrl, postText, isAuthor } = data;
+
   return (
     <Container>
-      <User picture={picture} />
+      <User picture={pictureUrl} />
       <UserContainer>
-        <h2>Juvenal Juvêncio </h2>
-        <h3>
-          Muito maneiro esse tutorial de Material UI com React, deem uma olhada!
-        </h3>
-        <LinkPreview link={link} />
+        <h2>{username}</h2>
+        <h3>{postText}</h3>
+        <LinkPreview link={postUrl} />
       </UserContainer>
     </Container>
   );

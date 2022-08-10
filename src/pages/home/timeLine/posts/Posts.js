@@ -1,12 +1,13 @@
 import Post from "../post/Post";
 import { Container } from "./styles";
 
-export default function Posts({ picture, links }) {
-  return (
-    <Container>
-      {links.map(({ url }, index) => (
-        <Post picture={picture} link={url} key={index} />
-      ))}
-    </Container>
-  );
+export default function Posts({ posts }) {
+  const hanlePosts = () =>
+    posts.length > 0 ? (
+      posts.map((data, index) => <Post data={data} key={index} />)
+    ) : (
+      <p>There are no posts yet</p>
+    );
+
+  return <Container>{hanlePosts()}</Container>;
 }

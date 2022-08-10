@@ -1,7 +1,7 @@
 import axios from "axios";
 import cheerio from "cheerio";
 
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+const CORS_PROXY = "https://thingproxy.freeboard.io/fetch/";
 
 const getPreviewData = tags => {
   const result = tags.reduce((previewData, item) => {

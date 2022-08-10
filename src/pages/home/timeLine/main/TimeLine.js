@@ -1,31 +1,35 @@
+import { useEffect, useState } from "react";
+import { useGlobal } from "../../../../context/globalContext";
 import Form from "../form/Form";
 import Posts from "../posts/Posts";
+import getPosts from "../../../../services/api/getPosts";
+import { RotatingLines } from "react-loader-spinner";
 import { Container } from "./styles";
-import userPicture from "../../../../assets/images/image 3.svg";
-
-const links = [
-  {
-    url: "https://stackoverflow.com/questions/54954091/how-to-use-callback-with-usestate-hook-in-react"
-  },
-  {
-    url: "https://bootcampra.notion.site/Projeto-17-Linkr-a135fca732e04f67ade8d110c717dc73"
-  },
-  {
-    url: "https://www.figma.com/file/otZek3I6SCoTJvz4DubYec/T6-%7C-Projet%C3%A3o%3A-Linkr---Rede-Social-de-Links-(Copy)?node-id=655%3A2"
-  },
-  {
-    url: "https://bootcampra.notion.site/Ter-05-07-Branches-e-Pull-Requests-761397a0b33d4d228132f2364e2884bf"
-  }
-];
 
 export default function TimeLine() {
+  const [posts, setPosts] = useState(null);
+  const { global, setGlobal } = useGlobal();
+
+  useEffect(() => {
+    getPosts(global, setGlobal, setPosts);
+  }, []);
+
   return (
     <>
       <Container>
         <h1>timeline</h1>
       </Container>
-      <Form picture={userPicture} />
-      <Posts picture={userPicture} links={links} />
+      {timeLineLoading(posts, setPosts)}
     </>
   );
 }
+
+const timeLineLoading = (posts, setPosts) =>
+  posts === null ? (
+    <RotatingLines strokeColor="#ffffff" width="140" />
+  ) : (
+    <>
+      <Form posts={posts} setPosts={setPosts} />
+      <Posts posts={posts} />
+    </>
+  );
