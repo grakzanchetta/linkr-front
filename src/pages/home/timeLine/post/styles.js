@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
 const Container = styled.div`
   background-color: #171717;
@@ -24,4 +26,30 @@ const UserContainer = styled.div`
   }
 `;
 
-export { Container, UserContainer };
+const LikesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  h6 {
+    font: normal 400 11px "Lato", sans-serif;
+    color: #ffffff;
+  }
+`;
+
+const RegHeart = styled(FaRegHeart)`
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;
+
+const Heart = styled(FaHeart)`
+  color: #ac0000;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;
+
+export { Container, UserContainer, LikesContainer, RegHeart, Heart };
