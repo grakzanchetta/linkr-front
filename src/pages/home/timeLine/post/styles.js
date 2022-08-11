@@ -36,6 +36,11 @@ const LikesContainer = styled.div`
     font: normal 400 11px "Lato", sans-serif;
     color: #ffffff;
   }
+
+  h4 {
+    font: normal 700 13px "Lato", sans-serif;
+    color: #505050;
+  }
 `;
 
 const RegHeart = styled(FaRegHeart)`

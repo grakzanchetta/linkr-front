@@ -3,6 +3,7 @@ import { useGlobal } from "../../../../context/globalContext";
 import createLike from "../../../../services/api/createLike";
 import deleteLike from "../../../../services/api/deleteLike";
 import { Oval } from "react-loader-spinner";
+import ReactTooltip from "react-tooltip";
 import { Heart, RegHeart, LikesContainer } from "./styles";
 
 const spinner = (
@@ -16,17 +17,27 @@ const spinner = (
   />
 );
 
-export default function Likes({ likes, id }) {
+export default function Likes({ likes, id, index }) {
   const { global } = useGlobal();
   const [like, setLike] = useState(haveALike(likes, global.user.id));
   const [loading, setLoading] = useState(false);
+  console.log(likes);
 
   return (
     <LikesContainer>
       {loading === false
         ? hanleLike(loading, setLoading, like, setLike, global, id, likes)
         : spinner}
-      <h6>{likes?.length} likes</h6>
+      <h6 data-tip data-for={`${index}`}>
+        {likes?.length} likes
+      </h6>
+      <ReactTooltip
+        id={`${index}`}
+        backgroundColor="rgba(255, 255, 255, 0.9)"
+        borderRadius="3px"
+      >
+        <h4>{descritionLike(likes, like)}</h4>
+      </ReactTooltip>
     </LikesContainer>
   );
 }
@@ -58,4 +69,42 @@ function likeOrDislike(loading, setLoading, like, setLike, global, id, likes) {
   } else {
     deleteLike(global, id, setLike, setLoading, likes);
   }
+}
+
+function descritionLike(arr, like) {
+  let text = "";
+
+  for (let i = 0; i < arr.length; i++) {
+    if (like === true) {
+      if (i === 0) {
+        text += "Você";
+        continue;
+      }
+
+      if (arr.length === 2) {
+        text += ` and ${arr[0].username}`;
+        break;
+      }
+
+      text = `, ${arr[0].username} and other ${arr.length - 2} people`;
+      break;
+    } else {
+      if (arr.length === 1) {
+        text = `${arr[0].username}`;
+        break;
+      }
+
+      if (arr.length === 2) {
+        text = `${arr[0].username} and ${arr[1].username}`;
+        break;
+      }
+
+      text = `${arr[0].username}, ${arr[1].username} and other ${
+        arr.length - 2
+      } people`;
+      break;
+    }
+  }
+
+  return text;
 }
