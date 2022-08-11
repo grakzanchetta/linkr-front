@@ -1,5 +1,6 @@
 import Post from "../post/Post";
 import { Container } from "./styles";
+// import { ReactTagify } from "react-tagify";
 
 export default function Posts({ posts }) {
   const hanlePosts = () =>
@@ -11,3 +12,4 @@ export default function Posts({ posts }) {
 
   return <Container>{hanlePosts()}</Container>;
 }
+// tagClicked={(tag)=> alert(tag)
