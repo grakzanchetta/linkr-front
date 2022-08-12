@@ -23,7 +23,7 @@ export default function Form({ posts, setPosts }) {
 
     const postsAux = { posts, setPosts };
 
-    createPost(global, payload, setLoading, postsAux);
+    createPost(global, payload, postsAux);
   }
 
   return (

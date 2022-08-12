@@ -1,7 +1,7 @@
 import { authApi } from "./api";
 import getPosts from "./getPosts";
 
-export default function createPost(global, payload, setLoading, postsAux) {
+export default function createPost(global, payload, postsAux) {
   const URL = "/posts";
 
   const { posts, setPosts } = postsAux;
@@ -13,16 +13,12 @@ export default function createPost(global, payload, setLoading, postsAux) {
   const promise = authApi(global.token).post(URL, payload);
 
   promise
-    .then(res => {
+    .then(() => {
       getPosts(global, null, setPosts);
-
-      setLoading(false);
-      console.log(res);
     })
     .catch(res => {
       setPosts(postsBackUp);
 
-      setLoading(false);
       alert("Houve um erro ao publicar seu link");
     });
 }

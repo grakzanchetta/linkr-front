@@ -30,6 +30,6 @@ const timeLineLoading = (posts, setPosts) =>
   ) : (
     <>
       <Form posts={posts} setPosts={setPosts} />
-      <Posts posts={posts} />
+      <Posts posts={posts} setPosts={setPosts} />
     </>
   );

@@ -21,7 +21,6 @@ export default function Likes({ likes, id, index }) {
   const { global } = useGlobal();
   const [like, setLike] = useState(haveALike(likes, global.user.id));
   const [loading, setLoading] = useState(false);
-  console.log(likes);
 
   return (
     <LikesContainer>

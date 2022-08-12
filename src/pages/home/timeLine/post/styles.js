@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 const Container = styled.div`
   background-color: #171717;
@@ -14,6 +15,12 @@ const UserContainer = styled.div`
   display: flex;
   gap: 7px;
   flex-direction: column;
+
+  span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   h2 {
     font: normal 400 19px "Lato", sans-serif;
@@ -57,4 +64,66 @@ const Heart = styled(FaHeart)`
   cursor: pointer;
 `;
 
-export { Container, UserContainer, LikesContainer, RegHeart, Heart };
+const Trash = styled(FaTrash)`
+  width: 20;
+  height: 20;
+  color: #ffffff;
+  cursor: pointer;
+`;
+
+const modalStyle = {
+  overlay: {
+    backgroundColor: "rgba(255, 255, 255, 0.9)"
+  },
+  content: {
+    width: "597px",
+    height: "262px",
+    padding: "0 100px",
+    paddingTop: "30px",
+    backgroundColor: "#333333",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "50px",
+    font: "normal 700 34px 'Lato', sans-serif",
+    color: "#ffffff",
+    textAlign: "center"
+  }
+};
+
+const divStyle = {
+  marginTop: "39px"
+};
+
+const buttonStyle1 = {
+  border: "none",
+  backgroundColor: "#ffffff",
+  borderRadius: "5px",
+  color: "#1877F2",
+  padding: "8px 20px",
+  font: "normal 700 18px 'Lato', sans-serif",
+  marginRight: "27px"
+};
+
+const buttonStyle2 = {
+  border: "none",
+  backgroundColor: "#1877F2",
+  borderRadius: "5px",
+  color: "#ffffff",
+  padding: "8px 20px",
+  font: "normal 700 18px 'Lato', sans-serif"
+};
+
+export {
+  Container,
+  UserContainer,
+  LikesContainer,
+  RegHeart,
+  Heart,
+  Trash,
+  modalStyle,
+  divStyle,
+  buttonStyle1,
+  buttonStyle2
+};
