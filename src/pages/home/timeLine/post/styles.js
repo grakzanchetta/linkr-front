@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+import { FaPencilAlt } from "react-icons/fa";
 
 const Container = styled.div`
   background-color: #171717;
@@ -64,9 +65,21 @@ const Heart = styled(FaHeart)`
   cursor: pointer;
 `;
 
+const IconsContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 const Trash = styled(FaTrash)`
-  width: 20;
-  height: 20;
+  width: 14px;
+  height: 14px;
+  color: #ffffff;
+  cursor: pointer;
+`;
+
+const Pencil = styled(FaPencilAlt)`
+  width: 14px;
+  height: 14px;
   color: #ffffff;
   cursor: pointer;
 `;
@@ -121,6 +134,8 @@ export {
   LikesContainer,
   RegHeart,
   Heart,
+  IconsContainer,
+  Pencil,
   Trash,
   modalStyle,
   divStyle,
