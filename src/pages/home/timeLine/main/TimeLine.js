@@ -4,7 +4,8 @@ import Form from "../form/Form";
 import Posts from "../posts/Posts";
 import getPosts from "../../../../services/api/getPosts";
 import { RotatingLines } from "react-loader-spinner";
-import { Container } from "./styles";
+import { Container, ContainerScroll } from "./styles";
+import Sidebar from "../../../../components/sidebar/Sidebar.js";
 
 export default function TimeLine() {
   const [posts, setPosts] = useState(null);
@@ -26,12 +27,19 @@ export default function TimeLine() {
   );
 }
 
-const timeLineLoading = (posts, setPosts) =>
+
+  const timeLineLoading = (posts, setPosts) =>
   posts === null ? (
     <RotatingLines strokeColor="#ffffff" width="140" />
   ) : (
+ 
     <>
       <Form posts={posts} setPosts={setPosts} />
-      <Posts posts={posts} setPosts={setPosts} />
+      <ContainerScroll>
+      <Posts posts={posts} />
+      <Sidebar/>
+    </ContainerScroll>
     </>
+ 
+
   );

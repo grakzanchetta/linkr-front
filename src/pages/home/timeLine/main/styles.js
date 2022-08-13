@@ -1,4 +1,12 @@
+
+
 import styled from "styled-components";
+
+const ContainerScroll = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+`
 
 const Container = styled.div`
   h1 {
@@ -10,4 +18,4 @@ const Container = styled.div`
   }
 `;
 
-export { Container };
+export { Container, ContainerScroll };
