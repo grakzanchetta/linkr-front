@@ -9,7 +9,7 @@ import { Container, UserContainer, Trash } from "./styles";
 import { IconsContainer, Pencil } from "./styles";
 
 export default function Post({ data, posts, setPosts, index }) {
-  let { id, username, pictureUrl, postUrl, likes, isAuthor } = data;
+  let { id, userId, username, pictureUrl, postUrl, likes, isAuthor } = data;
   const postText = useRef(data.postText);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [comment, setComment] = useState(
@@ -78,7 +78,13 @@ export default function Post({ data, posts, setPosts, index }) {
 
   return (
     <Container>
-      <User picture={pictureUrl} likes={likes} id={id} index={index} />
+      <User
+        picture={pictureUrl}
+        likes={likes}
+        id={id}
+        index={index}
+        userId={userId}
+      />
       <UserContainer>
         <span>
           <h2>{username}</h2>

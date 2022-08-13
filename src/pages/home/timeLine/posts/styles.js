@@ -9,6 +9,13 @@ const Container = styled.div`
     font: normal 700 43px "Oswald", sans-serif;
     color: #ffffff;
   }
+
+  h4 {
+    font: normal 700 43px "Oswald", sans-serif;
+    color: #ffffff;
+    margin-top: 140px;
+    text-align: center;
+  }
 `;
 
 export { Container };

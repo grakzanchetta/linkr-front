@@ -11,6 +11,7 @@ export default function TimeLine() {
   const { global, setGlobal } = useGlobal();
 
   useEffect(() => {
+    console.log("oi");
     getPosts(global, setGlobal, setPosts);
   }, []);
 

@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import Likes from "../post/Likes";
 import { Container } from "./styles";
 
-export default function User({ picture, likes, id, index }) {
+export default function User({ picture, likes, id, index, userId }) {
   return (
     <Container>
-      <img src={picture} alt="user" />
+      <Link to={`/user/${userId}`}>
+        <img src={picture} alt="user" />
+      </Link>
       {hanleLikes(likes, id, index)}
     </Container>
   );
