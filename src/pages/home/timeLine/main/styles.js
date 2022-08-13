@@ -18,4 +18,9 @@ const Container = styled.div`
   }
 `;
 
-export { Container, ContainerScroll };
+const FeedContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export { Container, ContainerScroll, FeedContainer };
