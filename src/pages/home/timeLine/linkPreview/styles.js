@@ -6,9 +6,7 @@ const LinkContainer = styled.div`
   border-radius: 11px;
   display: flex;
   cursor: pointer;
- 
-  flex-wrap: wrap;
-
+  
   img {
     width: 153.44px;
     height: 155px;
