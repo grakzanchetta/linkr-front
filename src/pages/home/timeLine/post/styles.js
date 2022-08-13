@@ -16,6 +16,7 @@ const UserContainer = styled.div`
   display: flex;
   gap: 7px;
   flex-direction: column;
+  flex-wrap: wrap;
 
   span {
     display: flex;
