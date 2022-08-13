@@ -8,12 +8,15 @@ const Container = styled.div`
   display: flex;
   height: 380px;
   width:15vw;
+  flex-wrap: wrap;
 `;
 
 const HashtagContainer = styled.div`
   width: 25vw;
   display: flex;
   flex-direction: column;
+  flex-wrap:wrap;
+  overflow-x: hidden;
   gap: 7px;
   h2 {
     font: normal 700 19px "Lato", sans-serif;
