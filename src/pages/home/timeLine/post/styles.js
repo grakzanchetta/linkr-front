@@ -45,9 +45,19 @@ const LikesContainer = styled.div`
     color: #ffffff;
   }
 
-  h4 {
-    font: normal 700 13px "Lato", sans-serif;
-    color: #505050;
+  .tooltip {
+    height: 24px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h5 {
+      font: normal 700 16px "Lato", sans-serif;
+      color: #505050;
+    }
   }
 `;
 

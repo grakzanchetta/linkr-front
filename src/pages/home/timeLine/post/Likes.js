@@ -30,12 +30,8 @@ export default function Likes({ likes, id, index }) {
       <h6 data-tip data-for={`${index}`}>
         {likes?.length} likes
       </h6>
-      <ReactTooltip
-        id={`${index}`}
-        backgroundColor="rgba(255, 255, 255, 0.9)"
-        borderRadius="3px"
-      >
-        <h4>{descritionLike(likes, like)}</h4>
+      <ReactTooltip id={`${index}`} className="tooltip">
+        <h5>{descritionLike(likes, like)}</h5>
       </ReactTooltip>
     </LikesContainer>
   );

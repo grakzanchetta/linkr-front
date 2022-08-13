@@ -35,7 +35,7 @@ const timeLineLoading = (posts, setPosts) =>
       <Form posts={posts} setPosts={setPosts} />
       <ContainerScroll>
         <Posts posts={posts} />
-        {/* <Sidebar/> */}
+        <Sidebar />
       </ContainerScroll>
     </>
   );

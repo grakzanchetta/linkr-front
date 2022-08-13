@@ -22,7 +22,7 @@ export default function Sidebar({ post }) {
   return (
 
     <Container>
-      {hashtags.lenght <1? (
+      {typeof hashtags === "string" ? (
         <HashtagContainer><h2> Nenhuma hashtag identificada ainda</h2></HashtagContainer>
       ) : (
         <>
