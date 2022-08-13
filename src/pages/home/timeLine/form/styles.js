@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 42.43vw;
+  width: 98%;
   display: flex;
   background-color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -14,7 +14,12 @@ const FormContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 5px;
+
+ input {
+  width: 100%;
+ }
 
   h6 {
     font: normal 300 20px "Lato", sans-serif;
