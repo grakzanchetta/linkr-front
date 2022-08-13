@@ -7,15 +7,15 @@ import { Container } from "./styles";
 
 export default function Sidebar({posts}){
 
-    // const [hashtags, setHashtags] = useState([])
+    const [hashtags, setHashtags] = useState([])
     const { global, setGlobal } = useGlobal();
+    
  
-    // useEffect(()=>{
-    //     getHashtags(setHashtags,global)
-    // },[posts]);
+    useEffect(()=>{
+        getHashtags(setHashtags,global)
+    },[posts]);
 
-    const hashtags = ["#ola", "#sabadou", "react", "#codar"]
-console.log(hashtags)
+ 
     return (
 
           <Container>
