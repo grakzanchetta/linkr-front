@@ -9,6 +9,9 @@ justify-content: space-between;
 `
 
 const Container = styled.div`
+  
+  width: 57vw;
+
   h1 {
     width: 100%;
     font: normal 700 43px "Oswald", sans-serif;
