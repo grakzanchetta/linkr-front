@@ -6,12 +6,13 @@ import { useGlobal } from "../../context/globalContext";
 
 export default function Login() {
     const [user, setUser] = useState({email: "", password: ""});
-    const navigate = useNavigate();
     const {global} = useGlobal();
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
    
     async function login(event) {
         event.preventDefault();
-
+        setLoading(true);
         try {
             const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/`, user);
             global.token = data;
@@ -19,7 +20,8 @@ export default function Login() {
             navigate('/home');
             
         } catch (error) {
-            alert("Dados inválidos. Tente novamente");
+            setLoading(false);
+            alert("Dados inválidos ou incompletos. Tente novamente");
             console.log(error.message)
         }
     }
@@ -36,7 +38,7 @@ export default function Login() {
                         <form onSubmit={login}>
                         <input required type="email" placeholder="email" value={user.email} onChange={e => setUser({...user, email: e.target.value})} />
                         <input required type="password" placeholder="password" value={user.password} onChange={e => setUser({...user, password: e.target.value})} />
-                            <button typeof="submit" >Log In</button>
+                            <button disabled={loading} typeof="submit" >Log In</button>
                         </form>
                         <div>
                             <Link to="/signup" style={{ textDecoration: 'none' }}>
