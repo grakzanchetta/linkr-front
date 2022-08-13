@@ -1,16 +1,25 @@
 import { useState } from "react";
 import { useGlobal } from "../../context/globalContext";
 import { Container, ArrowDown, UserContainer, Menu } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [menu, setMenu] = useState(false);
   const { global } = useGlobal();
+  const navigate = useNavigate();
 
   function displayMenu() {
     if (menu === false)
       return { visibility: "hidden", bottom: "-40px", rot: "0deg" };
 
     return { visibility: "visible", bottom: "-61px", rot: "180deg" };
+  }
+
+  function logout(){
+    localStorage.removeItem("token");
+    global.token = null;
+    global.user = null;
+    navigate('/');
   }
 
   return (
@@ -21,7 +30,7 @@ export default function Header() {
         {hanleImage(global)}
       </UserContainer>
       <Menu visibility={displayMenu().visibility} bottom={displayMenu().bottom}>
-        Logout
+        <div onClick={logout}> Logout</div>
       </Menu>
     </Container>
   );
