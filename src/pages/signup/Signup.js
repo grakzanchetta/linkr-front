@@ -14,7 +14,6 @@ export default function Signup() {
       
         try {
             await axios.post(`${process.env.REACT_APP_API_URL}/signup`, user);
-            alert ('usuario cadastrado');
             console.log(user);
             navigate('/');
         } catch (error) {

@@ -1,43 +1,60 @@
+import axios from "axios";
 import styled from "styled-components";
-import { Link, useNavigate} from "react-router-dom";
-
-function BuildLogin() {
-    return (
-      <>
-        <input type="text" placeholder="e-mail"
-        />
-        <input type="text"   placeholder="password"
-        />
-          <button>Log In</button>
-          
-          <div>
-          <Link to="/signup" style={{ textDecoration: 'none' }}>
-          <h3>First time? Create an account!</h3>
-          </Link>
-          </div>
-      </>
-    )
-  }
-
-const MadeLogin = BuildLogin();
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useGlobal } from "../../context/globalContext";
 
 export default function Login() {
-
+    const [user, setUser] = useState({email: "", password: ""});
     const navigate = useNavigate();
+    const {global} = useGlobal();
+   
+    async function login(event) {
+        event.preventDefault();
 
-  return (
-   <PageContainer>
-    <TitleContainer>
-        <h1>linkr</h1>
-        <h2>save, share and discover<br/>the best links in the web</h2>
-    </TitleContainer>
-    <LoginContainer>
-        <LoginForm>
+        try {
+            const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/`, user);
+            global.token = data;
+    
+            navigate('/home');
+        } catch (error) {
+            alert("Dados inválidos. Tente novamente");
+            console.log(error.message)
+        }
+    }
+ 
+    function BuildLogin() {
+        return (
+            <PageContainer>
+                <TitleContainer>
+                    <h1>linkr</h1>
+                    <h2>save, share and discover<br />the best links in the web</h2>
+                </TitleContainer>
+                <LoginContainer>
+                    <LoginForm>
+                        <form onSubmit={login}>
+                        <input required type="email" placeholder="email" value={user.email} onChange={e => setUser({...user, email: e.target.value})} />
+                        <input required type="password" placeholder="password" value={user.password} onChange={e => setUser({...user, password: e.target.value})} />
+                            <button typeof="submit" >Log In</button>
+                        </form>
+                        <div>
+                            <Link to="/signup" style={{ textDecoration: 'none' }}>
+                                <h3>First time? Create an account!</h3>
+                            </Link>
+                        </div>
+                    </LoginForm>
+                </LoginContainer>
+            </PageContainer>
+        )
+    }
+
+    const MadeLogin = BuildLogin();
+
+    return (
+        <>
             {MadeLogin}
-        </LoginForm>
-    </LoginContainer>
-   </PageContainer>
-  );
+        </>
+    );
 }
 
 const PageContainer = styled.div`
@@ -54,7 +71,7 @@ const TitleContainer = styled.div`
     width: 62.5vw;
     height: 100vh;
     background-color: #000000;
-
+   
     h1 {
         margin-top: 29.4vh;
         margin-left: 9.23vw;
@@ -114,6 +131,7 @@ const LoginContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     @media (max-width: 375px) {
     width: 100vw;
@@ -122,18 +140,26 @@ const LoginContainer = styled.div`
 }
 `;
 
-const LoginForm = styled.form`
+const LoginForm = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: -15vh;
     margin-left: auto;
     margin-right: auto;
     width: 37.5vw;
 
+    form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 31.5vw;
+    }
+
     input {
         height: 65px;
-        padding-left: 17px;
+        padding-left: 11px;
         margin-left: 3vw;
         margin-right: 3vw;
         margin-bottom: 13px;
@@ -144,6 +170,7 @@ const LoginForm = styled.form`
         font-size: 27px;
         line-height: 40px;
         color: #9F9F9F;
+        width: 31.5vw;
     }
     
     button {
@@ -158,6 +185,7 @@ const LoginForm = styled.form`
         line-height: 40px;
         margin-left: 3vw;
         margin-right: 3vw;
+        width: 31.5vw;
     }
    
     div {
@@ -180,8 +208,9 @@ const LoginForm = styled.form`
     @media (max-width: 375px) {
     width: 100vw;
     margin-top: 0px;
-
+ 
     input {
+        width: 94vw;
         height: 55px;
         margin-left: 3vw;
         margin-right: 3vw;
@@ -193,6 +222,12 @@ const LoginForm = styled.form`
         font-size: 27px;
         line-height: 40px;
         color: #9F9F9F;
+    }
+
+    button {
+        margin-left: 3vw;
+        margin-right: 3vw;
+        width: 94vw;
     }
 
     h3 {
