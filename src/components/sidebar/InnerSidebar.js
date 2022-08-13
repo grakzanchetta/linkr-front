@@ -1,7 +1,7 @@
 import {HashtagContainer, Linha }from "./styles"
 import hashtagRedirect from "../../services/api/hashtagRedirect";
 
-export default function InnerSidebar({hashtags, setSearch}){
+export default function InnerSidebar({hashtags}){
   console.log("hashtags que chegam no Inner", hashtags)
   return (
     <>
