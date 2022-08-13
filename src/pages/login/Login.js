@@ -8,23 +8,21 @@ export default function Login() {
     const [user, setUser] = useState({email: "", password: ""});
     const navigate = useNavigate();
     const {global} = useGlobal();
-
-    const [token, setToken] = useState(global.token);
-    console.log(token)
    
     async function login(event) {
         event.preventDefault();
 
         try {
-            await axios.post(`${process.env.REACT_APP_API_URL}/`, user);
-            setToken({headers: {Authorization: `Bearer ${token}`}});
+            const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/`, user);
+            global.token = data;
+    
             navigate('/home');
         } catch (error) {
             alert("Dados inválidos. Tente novamente");
             console.log(error.message)
         }
     }
-    // isso é um comentario
+ 
     function BuildLogin() {
         return (
             <PageContainer>
