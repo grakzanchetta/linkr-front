@@ -37,7 +37,7 @@ export default function TimeLine() {
       <Form posts={posts} setPosts={setPosts} />
       <ContainerScroll>
       <Posts posts={posts} />
-      {/*<Sidebar/>*/} 
+      <Sidebar/> 
     </ContainerScroll>
     </>
  
