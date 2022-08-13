@@ -7,14 +7,11 @@ const Container = styled.div`
   display: flex;
 `;
 
-const HastagContainer = styled.div`
+const HashtagContainer = styled.div`
   width: 25vw;
   display: flex;
   gap: 7px;
-  flex-direction: column;
-  background-color: #171717;
-  border-radius: 16px;
-  padding: 20px;
+
   h2 {
     font: normal 700 19px "Lato", sans-serif;
     color: #ffffff;
@@ -23,4 +20,4 @@ const HastagContainer = styled.div`
 
 `;
 
-export { Container, UserContainer };
+export default { Container, HashtagContainer };

@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+const ContainerScroll = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+`
+
 const Container = styled.div`
   h1 {
     width: 100%;
@@ -10,4 +16,4 @@ const Container = styled.div`
   }
 `;
 
-export { Container };
+export { Container, ContainerScroll };

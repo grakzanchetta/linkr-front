@@ -1,10 +1,14 @@
-export default function Sidebar({hashtags}){return (
+import HashtagContainer from "./styles"
+
+export default function InnerSidebar({hashtags}){
+  console.log(hashtags)
+  return (
     <>
-      <Container>
+      <HashtagContainer>
         {hashtags.map(hashtag=>{
             <h3>hashtag</h3>
         })}
-      </Container>
+      </HashtagContainer>
     </>
   );
 

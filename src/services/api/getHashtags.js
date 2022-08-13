@@ -1,9 +1,9 @@
 import { authApi } from "./api";
 
-export default function getHashtags(setHashtags,global) {
-  const URL = "/hashtags";
+export default function getHashtags(setHashtags) {
+  const URL = "/tophashtags";
 
-  const promise = authApi(global.token).get(URL);
+  const promise = authApi().get(URL);
 
   promise
     .then(res => setHashtags(res))
