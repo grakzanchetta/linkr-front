@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useGlobal } from "../../context/globalContext";
+import Form from "./form/Form";
 import { Container, ArrowDown, UserContainer, Menu } from "./styles";
 
 export default function Header() {
@@ -16,6 +17,7 @@ export default function Header() {
   return (
     <Container>
       <h1>linkr</h1>
+      <Form />
       <UserContainer>
         <ArrowDown onClick={() => setMenu(!menu)} rotate={displayMenu().rot} />
         {hanleImage(global)}

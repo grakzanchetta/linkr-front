@@ -13,8 +13,10 @@ export default function PostsUser() {
   const { global } = useGlobal();
 
   useEffect(() => {
+    if (posts !== null) setPosts(null);
+
     getPostsByUser(global, id, setPosts);
-  }, []);
+  }, [id]);
 
   const hanlePost = () =>
     posts === null ? (

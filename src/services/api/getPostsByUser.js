@@ -8,7 +8,6 @@ function getPostsByUser(global, id, setPosts) {
   promise
     .then(({ data }) => {
       setPosts(data);
-      console.log(data);
     })
     .catch(error => {
       console.log(error);

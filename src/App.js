@@ -17,7 +17,7 @@ export default function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/user/:id" element={<PostsUser />} />
+          <Route exact path="/user/:id" element={<PostsUser />} />
         </Routes>
       </GlobalProvider>
     </BrowserRouter>
