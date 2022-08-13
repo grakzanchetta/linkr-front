@@ -5,6 +5,7 @@ const GlobalContext = createContext();
 export function GlobalProvider({ children }) {
   const [global, setGlobal] = useState({
     token: null,
+    users: null,
     user: null
   });
 
