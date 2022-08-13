@@ -2,8 +2,6 @@ import axios from "axios";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { ThreeDots } from "react-loader-spinner";
-
 
 export default function Signup() {
     const [user, setUser] = useState({email: "", password: "", username: "", pictureUrl:""});
@@ -16,7 +14,6 @@ export default function Signup() {
         setLoading(true);
         try {
             await axios.post(`${process.env.REACT_APP_API_URL}/signup`, user);
-            console.log(user);
             navigate('/');
         } catch (error) {
             setLoading(false);

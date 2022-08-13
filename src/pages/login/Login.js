@@ -17,7 +17,7 @@ export default function Login() {
             const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/`, user);
             global.token = data;
             localStorage.setItem("token", JSON.stringify(data));
-            navigate('/home');
+            navigate('/timeline');
             
         } catch (error) {
             setLoading(false);
