@@ -6,6 +6,7 @@ import Page from "../../containers/page/Page";
 import getPostsByUser from "../../services/api/getPostsByUser";
 import Post from "../home/timeLine/post/Post";
 import { Container } from "../home/timeLine/posts/styles";
+import { UserInfo } from "./styles";
 
 export default function PostsUser() {
   const [posts, setPosts] = useState(null);
@@ -23,7 +24,10 @@ export default function PostsUser() {
       "loading"
     ) : (
       <>
+        <UserInfo>
+        <img src={global.user.pictureUrl} alt="User" />
         <h4>{posts[0].username}’s posts</h4>
+        </UserInfo>
         {posts.map((post, index) => (
           <Post
             data={post}
