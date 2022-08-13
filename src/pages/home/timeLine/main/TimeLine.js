@@ -10,7 +10,7 @@ import Sidebar from "../../../../components/sidebar/Sidebar.js";
 export default function TimeLine() {
   const [posts, setPosts] = useState(null);
   const { global, setGlobal } = useGlobal();
-  
+
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
     global.token = token;
@@ -27,19 +27,15 @@ export default function TimeLine() {
   );
 }
 
-
-  const timeLineLoading = (posts, setPosts) =>
+const timeLineLoading = (posts, setPosts) =>
   posts === null ? (
     <RotatingLines strokeColor="#ffffff" width="140" />
   ) : (
- 
     <>
       <Form posts={posts} setPosts={setPosts} />
       <ContainerScroll>
-      <Posts posts={posts} />
-      <Sidebar/>
-    </ContainerScroll>
+        <Posts posts={posts} />
+        {/* <Sidebar/> */}
+      </ContainerScroll>
     </>
- 
-
   );
