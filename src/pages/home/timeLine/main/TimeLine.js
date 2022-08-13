@@ -9,8 +9,10 @@ import { Container } from "./styles";
 export default function TimeLine() {
   const [posts, setPosts] = useState(null);
   const { global, setGlobal } = useGlobal();
-
+  
   useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    global.token = token;
     getPosts(global, setGlobal, setPosts);
   }, []);
 
