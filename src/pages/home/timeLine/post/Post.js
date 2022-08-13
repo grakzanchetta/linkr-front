@@ -10,6 +10,7 @@ import { IconsContainer, Pencil } from "./styles";
 
 export default function Post({ data, posts, setPosts, index }) {
   let { id, userId, username, pictureUrl, postUrl, likes, isAuthor } = data;
+  const { title, image, description } = data;
   const postText = useRef(data.postText);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [comment, setComment] = useState(
@@ -26,7 +27,7 @@ export default function Post({ data, posts, setPosts, index }) {
     }
   }, [edit]);
 
-  function teste(event) {
+  function key(event) {
     switch (event.key) {
       case "Enter":
         if (loading === true) return;
@@ -51,7 +52,7 @@ export default function Post({ data, posts, setPosts, index }) {
 
     return (
       <Input
-        eventKey={teste}
+        eventKey={key}
         reference={inputRef}
         value={comment}
         onChange={setComment}
@@ -91,7 +92,12 @@ export default function Post({ data, posts, setPosts, index }) {
           {DeleteAndEdit()}
         </span>
         {hanleComment()}
-        <LinkPreview link={postUrl} />
+        <LinkPreview
+          url={postUrl}
+          image={image}
+          description={description}
+          title={title}
+        />
         <Dialog
           modalIsOpen={modalIsOpen}
           setIsOpen={setIsOpen}
