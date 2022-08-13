@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const ContainerScroll = styled.div`
 display: flex;
-flex-direction: column;
-justify-content: space-around;
+flex-direction: row;
+justify-content: space-between;
 `
 
 const Container = styled.div`

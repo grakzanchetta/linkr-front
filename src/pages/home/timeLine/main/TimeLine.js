@@ -25,18 +25,19 @@ export default function TimeLine() {
   );
 }
 
-const timeLineLoading = (posts, setPosts) =>
+
+  const timeLineLoading = (posts, setPosts) =>
   posts === null ? (
     <RotatingLines strokeColor="#ffffff" width="140" />
   ) : (
-    <ContainerScroll>
+ 
     <>
       <Form posts={posts} setPosts={setPosts} />
+      <ContainerScroll>
       <Posts posts={posts} />
-    </>
-    <>
-    <Sidebar/>
-    </>
+      <Sidebar/>
     </ContainerScroll>
+    </>
+ 
 
   );
