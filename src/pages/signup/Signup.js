@@ -2,22 +2,24 @@ import axios from "axios";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
 
 
 export default function Signup() {
     const [user, setUser] = useState({email: "", password: "", username: "", pictureUrl:""});
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
 
     async function sign(event) {
         event.preventDefault();
-      
+        setLoading(true);
         try {
             await axios.post(`${process.env.REACT_APP_API_URL}/signup`, user);
             console.log(user);
             navigate('/');
         } catch (error) {
-
+            setLoading(false);
             alert("Usuário ou e-mail já cadastrado");
             console.log(error.message)
         }
@@ -37,7 +39,7 @@ export default function Signup() {
                         <input required type="password" placeholder="password" value={user.password} onChange={e => setUser({...user, password: e.target.value})} />
                         <input required type="text" placeholder="username" value={user.username} onChange={e => setUser({...user, username: e.target.value.replace(" ", "")})} />
                         <input required type="text" placeholder="pictureUrl" value={user.pictureUrl} onChange={e => setUser({...user, pictureUrl: e.target.value.replace(" ", "")})} />
-                            <button typeof="submit" >Sign Up</button>
+                            <button disabled={loading} typeof="submit" >Sign Up</button>
                         </form>
                         <div>
                             <Link to="/" style={{ textDecoration: 'none' }}>
