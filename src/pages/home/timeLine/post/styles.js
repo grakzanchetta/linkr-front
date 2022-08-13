@@ -9,6 +9,7 @@ const Container = styled.div`
   border-radius: 16px;
   padding: 20px;
   display: flex;
+  
 `;
 
 const UserContainer = styled.div`

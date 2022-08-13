@@ -6,7 +6,8 @@ const LinkContainer = styled.div`
   border-radius: 11px;
   display: flex;
   cursor: pointer;
-  
+ 
+
   img {
     width: 153.44px;
     height: 155px;
@@ -15,7 +16,7 @@ const LinkContainer = styled.div`
   }
 `;
 const Box = styled.div`
-  width: 100%;
+  width: 34.93vw;
   padding: 20px;
   display: flex;
   flex-direction: column;
