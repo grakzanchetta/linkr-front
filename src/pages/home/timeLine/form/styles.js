@@ -16,6 +16,7 @@ const FormContainer = styled.form`
   flex-direction: column;
   flex-wrap: wrap;
   gap: 5px;
+  
 
  input {
   width: 100%;
@@ -31,6 +32,15 @@ const FormContainer = styled.form`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+  }
+
+  button {
+    width: 122px;
+    height: 32px;
+  
+    @media (max-width: 375px) {
+    height: 21px;
+  }
   }
 `;
 

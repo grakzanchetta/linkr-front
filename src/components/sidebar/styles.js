@@ -9,6 +9,9 @@ const Container = styled.div`
   height: 380px;
   width:15vw;
   flex-wrap: wrap;
+  @media (max-width: 375px) {
+    display: none;
+  }
 `;
 
 const HashtagContainer = styled.div`

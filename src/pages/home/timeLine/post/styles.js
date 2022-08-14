@@ -9,6 +9,7 @@ const Container = styled.div`
   border-radius: 16px;
   padding: 20px;
   display: flex;
+
   
 `;
 
@@ -18,6 +19,7 @@ const UserContainer = styled.div`
   gap: 7px;
   flex-direction: column;
   flex-wrap: wrap;
+  width: 98%;
 
   span {
     display: flex;
@@ -139,6 +141,14 @@ const buttonStyle2 = {
   padding: "8px 20px",
   font: "normal 700 18px 'Lato', sans-serif"
 };
+const tagStyle = {
+  color: 'white',
+  fontWeight: 700,
+
+}
+const mentionStyle = {
+
+}
 
 export {
   Container,
@@ -152,5 +162,6 @@ export {
   modalStyle,
   divStyle,
   buttonStyle1,
-  buttonStyle2
+  buttonStyle2,
+  tagStyle, mentionStyle
 };
