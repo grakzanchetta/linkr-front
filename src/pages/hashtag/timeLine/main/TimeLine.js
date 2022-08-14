@@ -6,7 +6,7 @@ import { Container, ContainerScroll, FeedContainer } from "./styles";
 import Sidebar from "../../../../components/sidebar/Sidebar.js";
 import getPostofHashtags from "../../../../services/api/getPostofHashtags";
 
-export default function TimeLine({hashtag}) {
+export default function TimeLine({ hashtag }) {
   const [hashtagPosts, setHashtagPosts] = useState(null);
   const { global, setGlobal } = useGlobal();
 
@@ -24,14 +24,17 @@ export default function TimeLine({hashtag}) {
   );
 }
 
-const timeLineLoading = (hashtagPosts) =>
-hashtagPosts === null ? (
+const timeLineLoading = (hashtagPosts, setHashtagPosts) =>
+  hashtagPosts === null ? (
     <RotatingLines strokeColor="#ffffff" width="140" />
   ) : (
     <>
       <ContainerScroll>
         <FeedContainer>
-          <Posts hashtagPosts={hashtagPosts} />
+          <Posts
+            hashtagPosts={hashtagPosts}
+            setHashtagPosts={setHashtagPosts}
+          />
         </FeedContainer>
         <Sidebar />
       </ContainerScroll>

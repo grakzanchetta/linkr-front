@@ -9,7 +9,7 @@ import { Container, UserContainer, Trash } from "./styles";
 import { IconsContainer, Pencil } from "./styles";
 
 export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
-  let { id, userId, username, pictureUrl, postUrl, likes, isAuthor } = data;
+  let { id, userId, username, pictureUrl, postUrl, likes } = data;
   const { title, image, description } = data;
   const postText = useRef(data.postText);
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -64,7 +64,7 @@ export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
   }
 
   const DeleteAndEdit = () =>
-    isAuthor === true ? (
+    userId === global.user.id ? (
       <IconsContainer>
         <Trash onClick={() => setIsOpen(true)} />
         <Pencil onClick={() => hanleEdit(edit, setEdit, setComment)} />

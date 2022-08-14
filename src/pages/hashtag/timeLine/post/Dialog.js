@@ -7,7 +7,7 @@ import { modalStyle, divStyle, buttonStyle1, buttonStyle2 } from "./styles";
 
 const loadingSpinner = <RotatingLines strokeColor="#fff" width="120" />;
 
-function Dialog({ modalIsOpen, setIsOpen, posts, setPosts, id }) {
+function Dialog({ modalIsOpen, setIsOpen, hashtagPosts, setHashtagPosts, id }) {
   const [loading, setLoading] = useState(false);
   const { global } = useGlobal();
   Modal.setAppElement("#modal");
@@ -17,7 +17,7 @@ function Dialog({ modalIsOpen, setIsOpen, posts, setPosts, id }) {
 
     setLoading(true);
 
-    deletePost(id, global, posts, setPosts);
+    deletePost(id, global, hashtagPosts, setHashtagPosts);
   }
 
   const contentModal = (
