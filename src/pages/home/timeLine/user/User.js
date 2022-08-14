@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import NOT_FOUND from "../../../../assets/images/404.jpg";
 import Likes from "../post/Likes";
 import { Container } from "./styles";
 
@@ -6,7 +7,11 @@ export default function User({ picture, likes, id, index, userId }) {
   return (
     <Container>
       <Link to={`/user/${userId}`}>
-        <img src={picture} alt="user" />
+        <img
+          src={picture}
+          onError={e => (e.target.src = NOT_FOUND)}
+          alt="user"
+        />
       </Link>
       {hanleLikes(likes, id, index)}
     </Container>

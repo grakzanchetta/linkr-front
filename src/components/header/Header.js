@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useGlobal } from "../../context/globalContext";
 import Form from "./form/Form";
+import NOT_FOUND from "../../assets/images/404.jpg";
 import { Container, ArrowDown, UserContainer, Menu } from "./styles";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -42,4 +43,12 @@ export default function Header() {
 }
 
 const hanleImage = global =>
-  global.user === null ? "" : <img src={global.user.pictureUrl} alt="User" />;
+  global.user === null ? (
+    ""
+  ) : (
+    <img
+      src={global.user.pictureUrl}
+      onError={e => (e.target.src = NOT_FOUND)}
+      alt="User"
+    />
+  );
