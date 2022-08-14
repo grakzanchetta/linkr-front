@@ -73,7 +73,6 @@ function descritionLike(arr, like) {
     if (like === true) {
       if (i === 0) {
         text += "You";
-        continue;
       }
 
       if (arr.length === 2) {

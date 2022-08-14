@@ -7,7 +7,6 @@ import getPostsByUser from "../../services/api/getPostsByUser";
 import Post from "../home/timeLine/post/Post";
 import { Container } from "../home/timeLine/posts/styles";
 import { ContainerScroll } from "../home/timeLine/main/styles";
-import { FeedContainer } from "../home/timeLine/main/styles";
 import { UserInfo } from "./styles";
 import Sidebar from "../../components/sidebar/Sidebar";
 
