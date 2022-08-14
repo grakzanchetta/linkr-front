@@ -4,6 +4,7 @@ import GlobalCSS from "./assets/css/global";
 import { GlobalProvider } from "./context/globalContext";
 import Home from "./pages/home/Home";
 import PostsUser from "./pages/user/PostsUser";
+import Hashtag from "./pages/hashtag/Hashtag"
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/timeline" element={<Home />} />
           <Route path="/user/:id" element={<PostsUser />} />
+          <Route path="/hashtag/:hashtag" element={<Hashtag />} />
         </Routes>
       </GlobalProvider>
     </BrowserRouter>

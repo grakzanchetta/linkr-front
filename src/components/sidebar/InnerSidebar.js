@@ -1,15 +1,17 @@
-import {HashtagContainer, Linha }from "./styles"
-import hashtagRedirect from "../../services/api/hashtagRedirect";
+import { HashtagContainer, Linha } from "./styles"
+import hashtagRedirect from "../../services/api/getPostofHashtags";
+import {useNavigate }from "react-router-dom";
 
-export default function InnerSidebar({hashtags}){
-  console.log("hashtags que chegam no Inner", hashtags)
+
+export default function InnerSidebar({ hashtags }) {
+  
+  const navigate = useNavigate()
   return (
     <>
       <HashtagContainer>
         <h1>trending</h1>
         <Linha></Linha>
-        {hashtags.map((hashtag)=><h2>{hashtag.name}</h2>)}
-        {/* {hashtags.map((hashtag)=><h2 onClick={(hashtag)=> hashtagRedirect(hashtag)}>{hashtag.name}</h2>)} */}
+        {hashtags.map(({name}) => <h2 onClick={()=>navigate(`/hashtag/${name}`)}>{name}</h2>)}
       </HashtagContainer>
     </>
   );
