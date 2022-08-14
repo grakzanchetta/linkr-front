@@ -7,6 +7,7 @@ import getPostsByUser from "../../services/api/getPostsByUser";
 import Post from "../home/timeLine/post/Post";
 import { Container } from "../home/timeLine/posts/styles";
 import { ContainerScroll } from "../home/timeLine/main/styles";
+import { FeedContainer } from "../home/timeLine/main/styles";
 import { UserInfo } from "./styles";
 import Sidebar from "../../components/sidebar/Sidebar";
 
@@ -31,15 +32,19 @@ export default function PostsUser() {
           <h4>{posts[0].username}’s posts</h4>
         </UserInfo>
         <ContainerScroll>
-          {posts.map((post, index) => (
-            <Post
-              data={post}
-              posts={posts}
-              setPosts={setPosts}
-              index={index}
-              key={index}
-            />
-          ))}
+          <FeedContainer>
+            <Container>
+              {posts.map((post, index) => (
+                <Post
+                  data={post}
+                  posts={posts}
+                  setPosts={setPosts}
+                  index={index}
+                  key={index}
+                />
+              ))}
+            </Container>
+          </FeedContainer>
           <Sidebar />
         </ContainerScroll>
       </>
@@ -48,7 +53,7 @@ export default function PostsUser() {
   return (
     <Page>
       <Header />
-      <Container>{hanlePost()}</Container>
+      {hanlePost()}
     </Page>
   );
 }
