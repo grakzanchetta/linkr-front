@@ -9,7 +9,9 @@ const Container = styled.div`
   border-radius: 16px;
   padding: 20px;
   display: flex;
-  
+  @media (max-width: 375px) {
+   width: 100vw;
+  }
 `;
 
 const UserContainer = styled.div`

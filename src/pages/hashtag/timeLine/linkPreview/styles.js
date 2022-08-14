@@ -6,8 +6,10 @@ const LinkContainer = styled.div`
   border-radius: 11px;
   display: flex;
   cursor: pointer;
+  @media (max-width: 375px) {
+    width: 72.5vw;
+  }
  
-
   img {
     width: 153.44px;
     height: 155px;
@@ -23,6 +25,8 @@ const Box = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   overflow-x: hidden;
+  
+ 
 
   h6 {
     font: normal 400 16px "Lato", sans-serif;

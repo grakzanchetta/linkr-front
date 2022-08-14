@@ -10,7 +10,7 @@ const Container = styled.div`
   position: relative;
 
   @media (max-width: 375px) {
-    margin-top: 145px;
+    margin-top: 138px;
     margin-bottom: 19px;
     align-items: center;
   }
