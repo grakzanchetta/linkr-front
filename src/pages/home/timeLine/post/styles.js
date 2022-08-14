@@ -141,6 +141,14 @@ const buttonStyle2 = {
   padding: "8px 20px",
   font: "normal 700 18px 'Lato', sans-serif"
 };
+const tagStyle = {
+  color: 'white',
+  fontWeight: 700,
+
+}
+const mentionStyle = {
+
+}
 
 export {
   Container,
@@ -154,5 +162,6 @@ export {
   modalStyle,
   divStyle,
   buttonStyle1,
-  buttonStyle2
+  buttonStyle2,
+  tagStyle, mentionStyle
 };
