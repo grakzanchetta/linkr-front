@@ -9,6 +9,7 @@ const Container = styled.div`
   border-radius: 16px;
   padding: 20px;
   display: flex;
+
   
 `;
 
@@ -18,6 +19,7 @@ const UserContainer = styled.div`
   gap: 7px;
   flex-direction: column;
   flex-wrap: wrap;
+  width: 98%;
 
   span {
     display: flex;

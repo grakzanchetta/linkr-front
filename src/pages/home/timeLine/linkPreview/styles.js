@@ -6,6 +6,7 @@ const LinkContainer = styled.div`
   border-radius: 11px;
   display: flex;
   cursor: pointer;
+  width: 98%;
  
 
   img {

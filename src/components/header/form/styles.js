@@ -5,8 +5,15 @@ const Container = styled.div`
   width: 39.09vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #e7e7e7;
   position: relative;
+
+  @media (max-width: 375px) {
+    margin-top: 145px;
+    margin-bottom: 19px;
+    align-items: center;
+  }
 `;
 
 const Input = styled(DebounceInput)`
@@ -20,6 +27,10 @@ const Input = styled(DebounceInput)`
   background-position: 98.5% 50%;
   padding-left: 20px;
   padding-right: 33px;
+
+  @media (max-width: 375px) {
+    width: 100vw;
+  }
 `;
 
 const Box = styled.div`
@@ -33,6 +44,11 @@ const Box = styled.div`
   z-index: 2;
   position: absolute;
   cursor: pointer;
+
+  @media (max-width: 375px) {
+    width: 100vw;
+  }
+
 `;
 
 const UserContainer = styled.div`
@@ -50,7 +66,7 @@ const UserContainer = styled.div`
 
   span {
     font: normal 400 19px "Lato", sans-serif;
-    color: #515151;
+    color: #515151;  
   }
 `;
 
