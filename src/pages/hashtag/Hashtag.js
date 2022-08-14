@@ -5,11 +5,10 @@ import TimeLine from "./timeLine/main/TimeLine";
 import { useParams } from "react-router-dom";
 
 
-export default function HashtagSearch(){
+export default function Hashtag(){
 
     const { hashtag } = useParams();
-
-    console.log(hashtag)
+    console.log("ta aqui", hashtag)
 
       return (
         <PageContainer>

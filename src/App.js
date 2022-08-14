@@ -4,7 +4,7 @@ import GlobalCSS from "./assets/css/global";
 import { GlobalProvider } from "./context/globalContext";
 import Home from "./pages/home/Home";
 import PostsUser from "./pages/user/PostsUser";
-import Hashtag from "./pages/hashtag/Hashtag"
+import Hashtag from "./pages/hashtag/Hashtag";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 

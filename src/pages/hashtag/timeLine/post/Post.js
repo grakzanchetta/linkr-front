@@ -8,7 +8,7 @@ import editPost from "../../../../services/api/editPost";
 import { Container, UserContainer, Trash } from "./styles";
 import { IconsContainer, Pencil } from "./styles";
 
-export default function Post({ data, posts, setPosts, index }) {
+export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
   let { id, userId, username, pictureUrl, postUrl, likes, isAuthor } = data;
   const { title, image, description } = data;
   const postText = useRef(data.postText);
@@ -101,8 +101,8 @@ export default function Post({ data, posts, setPosts, index }) {
         <Dialog
           modalIsOpen={modalIsOpen}
           setIsOpen={setIsOpen}
-          posts={posts}
-          setPosts={setPosts}
+          hashtagPosts={hashtagPosts}
+          setHashtagPosts={setHashtagPosts}
           id={id}
         />
       </UserContainer>

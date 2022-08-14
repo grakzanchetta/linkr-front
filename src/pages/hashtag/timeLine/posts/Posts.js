@@ -1,9 +1,9 @@
-
+import Post from "../post/Post";
 import { Container } from "./styles";
 
-export default function Posts({hashtagPosts, setHashtagPosts }) {
+export default function Posts({ hashtagPosts, setHashtagPosts }) {
   const hanlePosts = () =>
-  hashtagPosts.map((data, index) => (
+      hashtagPosts.map((data, index) => (
         <Post
           data={data}
           hashtagPosts={hashtagPosts}

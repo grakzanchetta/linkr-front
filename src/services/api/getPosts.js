@@ -16,7 +16,7 @@ export default function getPosts(global, setGlobal, setPosts) {
       if (global.user === null && setGlobal !== null) {
         setGlobal({ ...global, user: { id, username, pictureUrl } });
       }
-
+console.log(posts)
       setPosts(posts);
     })
     .catch(() =>

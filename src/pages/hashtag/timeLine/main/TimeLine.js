@@ -11,23 +11,21 @@ export default function TimeLine({hashtag}) {
   const { global, setGlobal } = useGlobal();
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("token"));
-    global.token = token;
-    getPostofHashtags(global, setGlobal, hashtag,hashtagPosts, setHashtagPosts);
-  }, []);
+    getPostofHashtags(hashtag, setHashtagPosts);
+  }, [hashtag]);
 
   return (
     <>
       <Container>
-        <h1>timeline</h1>
+        <h1>{hashtag}</h1>
       </Container>
       {timeLineLoading(hashtagPosts, setHashtagPosts)}
     </>
   );
 }
 
-const timeLineLoading = (hashtagPosts, setHashtagPosts) =>
-  posts === null ? (
+const timeLineLoading = (hashtagPosts) =>
+hashtagPosts === null ? (
     <RotatingLines strokeColor="#ffffff" width="140" />
   ) : (
     <>
