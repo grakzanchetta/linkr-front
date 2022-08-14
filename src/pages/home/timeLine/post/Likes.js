@@ -80,7 +80,7 @@ function descritionLike(arr, like) {
         break;
       }
 
-      text = `, ${arr[0].username} and other ${arr.length - 2} people`;
+      text += `, ${arr[0].username} and other ${arr.length - 2} people`;
       break;
     } else {
       if (arr.length === 1) {
