@@ -5,8 +5,10 @@ import LinkPreview from "../linkPreview/LinkPreview";
 import Dialog from "./Dialog";
 import Input from "../../../../components/input/Input";
 import editPost from "../../../../services/api/editPost";
-import { Container, UserContainer, Trash } from "./styles";
+import { Container, UserContainer, Trash, tagStyle, mentionStyle } from "./styles";
 import { IconsContainer, Pencil } from "./styles";
+import { ReactTagify } from "react-tagify";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
   let { id, userId, username, pictureUrl, postUrl, likes, isAuthor } = data;
@@ -20,6 +22,13 @@ export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
   const [loading, setLoading] = useState(false);
   const { global } = useGlobal();
   const inputRef = useRef(null);
+
+  const navigate = useNavigate()
+
+  function sendToHashPage(hash){
+     hash = hash.slice(1)
+     navigate(`/hashtag/${hash}`)
+  }
 
   useEffect(() => {
     if (edit === true) {
@@ -48,7 +57,11 @@ export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
   }
 
   function hanleComment() {
-    if (edit === false) return <h3>{postText.current}</h3>;
+    if (edit === false) return  <ReactTagify 
+    tagStyle={tagStyle}
+    mentionStyle={mentionStyle}
+    tagClicked={(tag) => sendToHashPage(tag)}
+    ><h3>{postText.current}</h3></ReactTagify>;
 
     return (
       <Input
