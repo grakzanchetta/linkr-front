@@ -37,7 +37,7 @@ export default function Likes({ likes, id, index }) {
   );
 }
 
-const haveALike = (arr, id) => arr?.some(l => (l.id = id));
+const haveALike = (arr, id) => arr?.some(l => l.id === id);
 
 const hanleLike = (loading, setLoading, like, setLike, global, id, likes) =>
   like === false ? (
@@ -72,7 +72,7 @@ function descritionLike(arr, like) {
   for (let i = 0; i < arr.length; i++) {
     if (like === true) {
       if (i === 0) {
-        text += "Você";
+        text += "You";
         continue;
       }
 
