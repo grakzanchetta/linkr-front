@@ -24,6 +24,8 @@ const Input = styled(DebounceInput)`
 
 const Box = styled.div`
   width: 100%;
+  max-height: 350px;
+  overflow-y: auto;
   margin-top: 43px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;

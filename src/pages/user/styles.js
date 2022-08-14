@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
-const UserInfo = styled.div `
+const UserInfo = styled.div`
+  display: flex;
+  align-items: flex-end;
+  width: 57vw;
 
-display: flex;
-align-items: flex-end;
-width: 57vw;
-
-img {
+  img {
     width: 53px;
     height: 53px;
     border-radius: 50%;
