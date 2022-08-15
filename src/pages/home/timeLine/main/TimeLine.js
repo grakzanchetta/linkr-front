@@ -14,6 +14,7 @@ export default function TimeLine() {
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
     global.token = token;
+
     getPosts(global, setGlobal, setPosts);
   }, []);
 

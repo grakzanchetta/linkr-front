@@ -11,7 +11,6 @@ import Login from "./pages/login/Login";
 export default function App() {
 
   const token = JSON.parse(localStorage.getItem("token"));
-  console.log(token)
   
   return (
     <BrowserRouter>
@@ -19,7 +18,7 @@ export default function App() {
       <GlobalCSS />
       <GlobalProvider>
         <Routes>
-          <Route path='/' element={token != null ? <Navigate to='/timeline' /> : <Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/timeline" element={<Home />} />
           <Route path="/user/:id" element={<PostsUser />} />
