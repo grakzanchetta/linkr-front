@@ -83,6 +83,8 @@ export default function Post({ data, posts, setPosts, index }) {
         height="auto"
         padding="4px 9px"
         loading={loading}
+        font='normal 400 16px "Lato", sans-serif'
+        color="#4C4C4C"
       />
     );
   }
