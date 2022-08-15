@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useGlobal } from "../../context/globalContext";
+import { useEffect } from "react";
 
 export default function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
@@ -10,7 +11,16 @@ export default function Login() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    if (token !== null) {
+      navigate("/timeline");
+    }
+  }, []);
+
   async function login(event) {
+
     event.preventDefault();
     setLoading(true);
     try {
@@ -29,6 +39,7 @@ export default function Login() {
   }
 
   function BuildLogin() {
+
     return (
       <PageContainer>
         <TitleContainer>
