@@ -9,8 +9,6 @@ const Container = styled.div`
   border-radius: 16px;
   padding: 20px;
   display: flex;
-
-  
 `;
 
 const UserContainer = styled.div`
@@ -142,13 +140,11 @@ const buttonStyle2 = {
   font: "normal 700 18px 'Lato', sans-serif"
 };
 const tagStyle = {
-  color: 'white',
+  color: "white",
   fontWeight: 700,
-
-}
-const mentionStyle = {
-
-}
+  display: "inline"
+};
+const mentionStyle = {};
 
 export {
   Container,
@@ -163,5 +159,6 @@ export {
   divStyle,
   buttonStyle1,
   buttonStyle2,
-  tagStyle, mentionStyle
+  tagStyle,
+  mentionStyle
 };

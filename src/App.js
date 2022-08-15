@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ResetCSS from "./assets/css/reset";
 import GlobalCSS from "./assets/css/global";
 import { GlobalProvider } from "./context/globalContext";
@@ -9,9 +9,6 @@ import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 
 export default function App() {
-
-  const token = JSON.parse(localStorage.getItem("token"));
-  
   return (
     <BrowserRouter>
       <ResetCSS />

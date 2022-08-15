@@ -10,7 +10,7 @@ const Container = styled.div`
   padding: 20px;
   display: flex;
   @media (max-width: 375px) {
-   width: 100vw;
+    width: 100vw;
   }
 `;
 
@@ -143,12 +143,11 @@ const buttonStyle2 = {
 };
 
 const tagStyle = {
-  color: 'white',
+  color: "white",
   fontWeight: 700,
-
-}
-const mentionStyle = {}
-
+  display: "inline"
+};
+const mentionStyle = {};
 
 export {
   Container,
@@ -162,7 +161,7 @@ export {
   modalStyle,
   divStyle,
   buttonStyle1,
-  buttonStyle2, 
+  buttonStyle2,
   tagStyle,
   mentionStyle
 };
