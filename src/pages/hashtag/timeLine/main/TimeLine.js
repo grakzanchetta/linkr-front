@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useGlobal } from "../../../../context/globalContext";
 import Posts from "../posts/Posts";
 import { RotatingLines } from "react-loader-spinner";
@@ -8,12 +9,13 @@ import getPostofHashtags from "../../../../services/api/getPostofHashtags";
 
 export default function TimeLine({ hashtag }) {
   const [hashtagPosts, setHashtagPosts] = useState(null);
-  const { global, setGlobal } = useGlobal();
+  const { global } = useGlobal();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
     global.token = token;
-    getPostofHashtags(hashtag, setHashtagPosts);
+    getPostofHashtags(global, hashtag, setHashtagPosts, navigate);
   }, [hashtag]);
 
   return (

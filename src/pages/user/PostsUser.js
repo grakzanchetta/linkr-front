@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useGlobal } from "../../context/globalContext";
 import Header from "../../components/header/Header";
 import Page from "../../containers/page/Page";
@@ -15,11 +15,18 @@ export default function PostsUser() {
   const [posts, setPosts] = useState(null);
   const { id } = useParams();
   const { global } = useGlobal();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token !== null && global.token === null) {
+      global.token = JSON.parse(token);
+    }
+
     if (posts !== null) setPosts(null);
 
-    getPostsByUser(global, id, setPosts);
+    getPostsByUser(global, id, setPosts, navigate);
   }, [id]);
 
   const hanlePost = () =>
