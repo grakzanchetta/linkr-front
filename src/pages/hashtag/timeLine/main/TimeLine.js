@@ -11,6 +11,8 @@ export default function TimeLine({ hashtag }) {
   const { global, setGlobal } = useGlobal();
 
   useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    global.token = token;
     getPostofHashtags(hashtag, setHashtagPosts);
   }, [hashtag]);
 
