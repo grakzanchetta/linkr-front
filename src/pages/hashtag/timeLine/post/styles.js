@@ -145,7 +145,8 @@ const buttonStyle2 = {
 const tagStyle = {
   color: "white",
   fontWeight: 700,
-  display: "inline"
+  display: "inline",
+  cursor: "pointer"
 };
 const mentionStyle = {};
 
