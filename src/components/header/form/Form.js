@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobal } from "../../../context/globalContext";
+import NOT_FOUND from "../../../assets/images/404.jpg";
 import { Container, Input, UserContainer, Box } from "./styles";
 import search from "../../../assets/images/Vector.svg";
 
@@ -49,7 +50,11 @@ export default function Form() {
       >
         {filter.arr?.map(({ id, pictureUrl, username }, index) => (
           <UserContainer onClick={() => blur(id)} key={index}>
-            <img src={pictureUrl} alt={username} />
+            <img
+              src={pictureUrl}
+              onError={e => (e.target.src = NOT_FOUND)}
+              alt={username}
+            />
             <span>{username}</span>
           </UserContainer>
         ))}
