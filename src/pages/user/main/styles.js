@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const UserInfo = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ const UserInfo = styled.div`
   margin-bottom: 50px;
 
   h4 {
-    font: normal 700 43px "Oswald", sans-serif;
+    font: normal 700 43px 'Oswald', sans-serif;
     color: #ffffff;
     margin-top: 20vh;
     text-align: center;
@@ -20,6 +20,13 @@ const UserInfo = styled.div`
     margin-right: 18px;
     margin-left: 18px;
   }
-`;
+`
 
-export { UserInfo };
+const Box = styled.div`
+  width: 57vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export { UserInfo, Box }

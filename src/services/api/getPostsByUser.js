@@ -1,4 +1,4 @@
-import { authApi, api } from "./api";
+import { authApi } from "./api";
 import logout from "../../utils/logout";
 
 function getPostsByUser(global, id, setPosts, navigate) {
@@ -6,7 +6,7 @@ function getPostsByUser(global, id, setPosts, navigate) {
 
   const postPromise = authApi(global.token).get(POSTS_URL);
 
-  const usersPromise = api.get("/users");
+  const usersPromise = authApi(global.token).get("/users");
 
   const promisesArray = [postPromise, usersPromise];
 

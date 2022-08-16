@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useGlobal } from "../../context/globalContext";
-import Header from "../../components/header/Header";
-import Page from "../../containers/page/Page";
-import getPostsByUser from "../../services/api/getPostsByUser";
-import Post from "../home/timeLine/post/Post";
-import { Container } from "../home/timeLine/posts/styles";
-import { ContainerScroll } from "../home/timeLine/main/styles";
-import { FeedContainer } from "../home/timeLine/main/styles";
-import { UserInfo } from "./styles";
-import Sidebar from "../../components/sidebar/Sidebar";
+import { useGlobal } from "../../../context/globalContext";
+import Header from "../../../components/header/Header";
+import Page from "../../../containers/page/Page";
+import getPostsByUser from "../../../services/api/getPostsByUser";
+import Relationships from "../relationships/Relationships";
+import Post from "../../home/timeLine/post/Post";
+import { Container } from "../../home/timeLine/posts/styles";
+import { ContainerScroll } from "../../home/timeLine/main/styles";
+import { FeedContainer } from "../../home/timeLine/main/styles";
+import { UserInfo, Box } from "./styles";
+import Sidebar from "../../../components/sidebar/Sidebar";
 
 export default function PostsUser() {
   const [posts, setPosts] = useState(null);
@@ -34,10 +35,13 @@ export default function PostsUser() {
       "loading"
     ) : (
       <>
-        <UserInfo>
-          <img src={global.user.pictureUrl} alt="User" />
-          <h4>{posts[0].username}’s posts</h4>
-        </UserInfo>
+        <Box>
+          <UserInfo>
+            <img src={global.user.pictureUrl} alt="User" />
+            <h4>{posts[0].username}’s posts</h4>
+          </UserInfo>
+          {hanleRelationships(id, global.user.id)}
+        </Box>
         <ContainerScroll>
           <FeedContainer>
             <Container>
@@ -64,3 +68,6 @@ export default function PostsUser() {
     </Page>
   );
 }
+
+const hanleRelationships = (id, userId) =>
+  id != userId ? <Relationships id={id} /> : "";

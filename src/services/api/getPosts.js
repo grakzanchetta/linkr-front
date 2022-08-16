@@ -1,11 +1,11 @@
-import { authApi, api } from "./api";
+import { authApi } from "./api";
 
 export default function getPosts(global, setGlobal, setPosts) {
   const URL = "/posts";
 
   const postsPromise = authApi(global.token).get(URL);
 
-  const usersPromise = api.get("/users");
+  const usersPromise = authApi(global.token).get("/users");
 
   Promise.all([postsPromise, usersPromise])
     .then(([resPosts, resUsers]) => {

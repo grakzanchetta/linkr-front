@@ -1,4 +1,4 @@
-import { authApi, api } from "./api";
+import { authApi } from "./api";
 import logout from "../../utils/logout";
 
 function getPostofHashtags(global, hashtag, setHashtagPosts, navigate) {
@@ -8,7 +8,7 @@ function getPostofHashtags(global, hashtag, setHashtagPosts, navigate) {
 
   const promise = authApi().get(URL);
 
-  const usersPromise = api.get("/users");
+  const usersPromise = authApi(global.token)("/users");
 
   const promisesArray = [promise, usersPromise];
 
