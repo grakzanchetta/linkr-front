@@ -38,22 +38,28 @@ export default function PostsUser() {
         <Box>
           <UserInfo>
             <img src={global.user.pictureUrl} alt="User" />
-            <h4>{posts[0].username}’s posts</h4>
+            <h4>
+              {global.users.filter(user => user.id == id)[0].username}’s posts
+            </h4>
           </UserInfo>
           {hanleRelationships(id, global.user.id)}
         </Box>
         <ContainerScroll>
           <FeedContainer>
             <Container>
-              {posts.map((post, index) => (
-                <Post
-                  data={post}
-                  posts={posts}
-                  setPosts={setPosts}
-                  index={index}
-                  key={index}
-                />
-              ))}
+              {posts.length > 0 ? (
+                posts.map((post, index) => (
+                  <Post
+                    data={post}
+                    posts={posts}
+                    setPosts={setPosts}
+                    index={index}
+                    key={index}
+                  />
+                ))
+              ) : (
+                <p>This user has no post</p>
+              )}
             </Container>
           </FeedContainer>
           <Sidebar />

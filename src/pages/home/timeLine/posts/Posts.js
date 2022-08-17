@@ -3,7 +3,7 @@ import { Container } from "./styles";
 
 export default function Posts({ posts, setPosts }) {
   const hanlePosts = () =>
-    posts.length > 0 ? (
+    typeof posts !== "string" ? (
       posts.map((data, index) => (
         <Post
           data={data}
@@ -14,7 +14,7 @@ export default function Posts({ posts, setPosts }) {
         />
       ))
     ) : (
-      <p>There are no posts yet</p>
+      <p>{posts}</p>
     );
 
   return <Container>{hanlePosts()}</Container>;

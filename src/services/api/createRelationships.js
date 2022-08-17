@@ -1,25 +1,23 @@
-import { authApi } from './api'
+import { authApi } from "./api";
 
 function createRelationships(global, id, setLoading, setFollow) {
-  const URL = '/relationships'
+  const URL = "/relationships";
 
-  const promise = authApi(global.token).post(URL, { id })
-
-  console.log('oi')
+  const promise = authApi(global.token).post(URL, { id });
 
   promise
     .then(res => {
-      console.log(res)
+      console.log(res);
 
-      setLoading(false)
+      setLoading(false);
 
-      setFollow(true)
+      setFollow(true);
     })
     .catch(err => {
-      alert('não foi possivel')
+      alert("não foi possivel");
 
-      setLoading(false)
-    })
+      setLoading(false);
+    });
 }
 
-export default createRelationships
+export default createRelationships;

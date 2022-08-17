@@ -16,8 +16,10 @@ export default function Form() {
   if (document.activeElement === inputRef.current) {
     filter.arr =
       value.length === 0
-        ? global.users
-        : global.users?.filter(({ username }) => username.includes(value));
+        ? global.users.sort((a, b) => b.follow - a.follow)
+        : global.users
+            .filter(({ username }) => username.includes(value))
+            .sort((a, b) => b.follow - a.follow);
   }
 
   function blur(id) {
@@ -48,16 +50,19 @@ export default function Form() {
         onMouseEnter={() => (onMouse.current = true)}
         onMouseLeave={() => (onMouse.current = false)}
       >
-        {filter.arr?.map(({ id, pictureUrl, username }, index) => (
-          <UserContainer onClick={() => blur(id)} key={index}>
-            <img
-              src={pictureUrl}
-              onError={e => (e.target.src = NOT_FOUND)}
-              alt={username}
-            />
-            <span>{username}</span>
-          </UserContainer>
-        ))}
+        {filter.arr
+          ?.map(({ id, pictureUrl, username, follow }, index) => (
+            <UserContainer onClick={() => blur(id)} key={index}>
+              <img
+                src={pictureUrl}
+                onError={e => (e.target.src = NOT_FOUND)}
+                alt={username}
+              />
+              <span>{username}</span>
+              {follow ? <p>• following</p> : ""}
+            </UserContainer>
+          ))
+          .sort((a, b) => b.follow - a.follow)}
       </Box>
     </Container>
   );

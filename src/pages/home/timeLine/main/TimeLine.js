@@ -10,7 +10,6 @@ import Sidebar from "../../../../components/sidebar/Sidebar.js";
 export default function TimeLine() {
   const [posts, setPosts] = useState(null);
   const { global, setGlobal } = useGlobal();
-  console.log(global);
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));

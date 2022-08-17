@@ -48,7 +48,6 @@ const Box = styled.div`
   @media (max-width: 375px) {
     width: 100vw;
   }
-
 `;
 
 const UserContainer = styled.div`
@@ -66,7 +65,12 @@ const UserContainer = styled.div`
 
   span {
     font: normal 400 19px "Lato", sans-serif;
-    color: #515151;  
+    color: #515151;
+  }
+
+  p {
+    font: normal 400 19px "Lato", sans-serif;
+    color: #c5c5c5;
   }
 `;
 

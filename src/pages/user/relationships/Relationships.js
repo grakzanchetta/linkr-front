@@ -14,8 +14,6 @@ export default function Relationships({ id }) {
     global.users.filter(user => user.id == id)[0].follow
   );
 
-  console.log(global.users);
-
   function send() {
     if (loading === true) return;
 
