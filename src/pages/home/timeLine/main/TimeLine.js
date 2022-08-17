@@ -6,18 +6,30 @@ import getPosts from "../../../../services/api/getPosts";
 import { RotatingLines } from "react-loader-spinner";
 import { Container, ContainerScroll, FeedContainer } from "./styles";
 import Sidebar from "../../../../components/sidebar/Sidebar.js";
+import useInterval from 'use-interval'
 
 export default function TimeLine() {
   const [posts, setPosts] = useState(null);
   const { global, setGlobal } = useGlobal();
-  console.log(global);
 
-  useEffect(() => {
+
+
+  useInterval(() => {
+
+    console.log(posts.length)
+  
+
+  }, 5000)
+
+
+ useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
     global.token = token;
-
     getPosts(global, setGlobal, setPosts);
+       
   }, []);
+ 
+  
 
   return (
     <>

@@ -24,4 +24,5 @@ export default function getPosts(global, setGlobal, setPosts) {
         "An error occured while trying to fetch the posts, please refresh the page"
       )
     );
-}
+  }
+
