@@ -17,6 +17,7 @@ export default function PostsUser() {
   const { id } = useParams();
   const { global } = useGlobal();
   const navigate = useNavigate();
+  console.log(posts);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
