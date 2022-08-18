@@ -34,7 +34,7 @@ const timeLineLoading = (hashtagPosts, setHashtagPosts) =>
   ) : (
     <>
       <ContainerScroll>
-        <FeedContainer>
+        <FeedContainer id="feedContainer">
           <Posts
             hashtagPosts={hashtagPosts}
             setHashtagPosts={setHashtagPosts}

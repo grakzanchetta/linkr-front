@@ -6,7 +6,7 @@ function getPostofHashtags(global, hashtag, setHashtagPosts, navigate) {
 
   const URL = `/hashtag/${hashtag}`;
 
-  const promise = authApi().get(URL);
+  const promise = authApi(global.token).get(URL);
 
   const usersPromise = authApi(global.token)("/users");
 

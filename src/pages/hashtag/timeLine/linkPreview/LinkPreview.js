@@ -1,3 +1,4 @@
+import NOT_FOUND from "../../../../assets/images/404.jpg";
 import { LinkContainer, Box } from "./styles";
 
 export default function LinkPreview({ url, title, description, image }) {
@@ -8,7 +9,7 @@ export default function LinkPreview({ url, title, description, image }) {
         <h5>{description}</h5>
         <h3>{url}</h3>
       </Box>
-      <img src={image} alt="logo" />
+      <img src={image} alt="logo" onError={e => (e.target.src = NOT_FOUND)} />
     </LinkContainer>
   );
 }

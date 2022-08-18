@@ -41,7 +41,6 @@ const Box = styled.div`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: #e7e7e7;
-  z-index: 2;
   position: absolute;
   cursor: pointer;
 

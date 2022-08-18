@@ -9,6 +9,12 @@ const Container = styled.div`
   border-radius: 16px;
   padding: 20px;
   display: flex;
+  position: relative;
+`;
+
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const UserContainer = styled.div`
@@ -161,5 +167,6 @@ export {
   buttonStyle1,
   buttonStyle2,
   tagStyle,
-  mentionStyle
+  mentionStyle,
+  Box
 };

@@ -5,16 +5,12 @@ import LinkPreview from "../linkPreview/LinkPreview";
 import Dialog from "./Dialog";
 import Input from "../../../../components/input/Input";
 import editPost from "../../../../services/api/editPost";
-import {
-  Container,
-  UserContainer,
-  Trash,
-  tagStyle,
-  mentionStyle
-} from "./styles";
+import { Container, UserContainer, Trash, Box, tagStyle } from "./styles";
+import { mentionStyle } from "./styles";
 import { IconsContainer, Pencil } from "./styles";
 import { ReactTagify } from "react-tagify";
 import { useNavigate } from "react-router-dom";
+import Comments from "../comments/main/Comments";
 
 export default function Post({ data, posts, setPosts, index }) {
   let { id, userId, username, pictureUrl, postUrl, likes, isAuthor } = data;
@@ -28,7 +24,8 @@ export default function Post({ data, posts, setPosts, index }) {
   const [loading, setLoading] = useState(false);
   const { global } = useGlobal();
   const inputRef = useRef(null);
-
+  const [commentsBox, setCommentsBox] = useState(false);
+  const [comments, setComments] = useState(data.comments);
   const navigate = useNavigate();
 
   function sendToHashPage(hash) {
@@ -76,7 +73,7 @@ export default function Post({ data, posts, setPosts, index }) {
 
     return (
       <Input
-        eventKey={key}
+        onKeyUp={key}
         reference={inputRef}
         value={comment}
         onChange={setComment}
@@ -104,34 +101,44 @@ export default function Post({ data, posts, setPosts, index }) {
   }
 
   return (
-    <Container>
-      <User
-        picture={pictureUrl}
-        likes={likes}
-        id={id}
-        index={index}
-        userId={userId}
-      />
-      <UserContainer>
-        <span>
-          <h2>{username}</h2>
-          {DeleteAndEdit()}
-        </span>
-        {hanleComment()}
-        <LinkPreview
-          url={postUrl}
-          image={image}
-          description={description}
-          title={title}
-        />
-        <Dialog
-          modalIsOpen={modalIsOpen}
-          setIsOpen={setIsOpen}
-          posts={posts}
-          setPosts={setPosts}
+    <Box>
+      <Container>
+        <User
+          picture={pictureUrl}
+          likes={likes}
           id={id}
+          index={index}
+          userId={userId}
+          num={comments?.length}
+          setCommentsBox={setCommentsBox}
         />
-      </UserContainer>
-    </Container>
+        <UserContainer>
+          <span>
+            <h2>{username}</h2>
+            {DeleteAndEdit()}
+          </span>
+          {hanleComment()}
+          <LinkPreview
+            url={postUrl}
+            image={image}
+            description={description}
+            title={title}
+          />
+          <Dialog
+            modalIsOpen={modalIsOpen}
+            setIsOpen={setIsOpen}
+            posts={posts}
+            setPosts={setPosts}
+            id={id}
+          />
+        </UserContainer>
+      </Container>
+      <Comments
+        commentsBox={commentsBox}
+        postId={id}
+        comments={comments}
+        setComments={setComments}
+      />
+    </Box>
   );
 }

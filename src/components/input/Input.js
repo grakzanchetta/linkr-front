@@ -5,8 +5,9 @@ export default function Input(props) {
   const { loading = false, minLength = "", maxLength = "" } = props;
   const { border = "none", boxShadow = "none", borderRadius = "6px" } = props;
   const { backGround = "#ffffff", color = "#9F9F9F", required = true } = props;
-  const { padding = "none" } = props;
+  const { padding = "none", image = null } = props;
   const { reference = null, eventKey = null } = props;
+  const { backgroundPosition = "98.5% 50%" } = props;
   const { placeholder, value, onChange } = props;
 
   function loadingInput() {
@@ -33,6 +34,8 @@ export default function Input(props) {
       borderRadius={borderRadius}
       disabled={loadingInput().disabled}
       placeholder={placeholder}
+      style={{ backgroundImage: `url(${image})` }}
+      backgroundPosition={backgroundPosition}
       value={value}
       onChange={e => onChange(e.target.value)}
     />
