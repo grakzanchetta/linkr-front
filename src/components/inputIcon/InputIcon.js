@@ -1,7 +1,7 @@
 import { InputBox, Plane } from "./styles";
 
 export default function InputIcon(props) {
-  const { width = "53.40vw", height = "60px" } = props;
+  const { width = "48.9vw", height = "60px" } = props;
   const { value, onChange, loading = false } = props;
 
   function loadingInput() {

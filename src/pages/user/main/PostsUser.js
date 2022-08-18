@@ -5,6 +5,7 @@ import Header from "../../../components/header/Header";
 import Page from "../../../containers/page/Page";
 import getPostsByUser from "../../../services/api/getPostsByUser";
 import Relationships from "../relationships/Relationships";
+import NOT_FOUND from "../../../assets/images/404.jpg";
 import Post from "../../home/timeLine/post/Post";
 import { Container } from "../../home/timeLine/posts/styles";
 import { ContainerScroll } from "../../home/timeLine/main/styles";
@@ -17,7 +18,6 @@ export default function PostsUser() {
   const { id } = useParams();
   const { global } = useGlobal();
   const navigate = useNavigate();
-  console.log(posts);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -38,7 +38,11 @@ export default function PostsUser() {
       <>
         <Box>
           <UserInfo>
-            <img src={global.user.pictureUrl} alt="User" />
+            <img
+              src={global.user.pictureUrl}
+              alt="User"
+              onError={e => (e.target.src = NOT_FOUND)}
+            />
             <h4>
               {global.users.filter(user => user.id == id)[0].username}’s posts
             </h4>

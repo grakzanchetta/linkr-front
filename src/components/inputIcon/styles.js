@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 
 const InputBox = styled.div`
-  width: 48.9vw;
+  width: ${props => props.width};
   height: 39px;
   display: flex;
   box-sizing: border-box;
@@ -11,7 +11,7 @@ const InputBox = styled.div`
   background-color: ${props => props.backGround};
 
   input {
-    width: calc(48.9vw - 35px);
+    width: calc(${props => props.width} - 35px);
     height: calc(39px - 6px);
     border: none;
     border-radius: 12px;

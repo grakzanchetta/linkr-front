@@ -10,6 +10,7 @@ function createComment(global, payload, setLoading, setComments) {
       setLoading(false);
 
       const { comment } = payload;
+
       const { username, pictureUrl } = global.user;
 
       const aux = { username, pictureUrl, comment };

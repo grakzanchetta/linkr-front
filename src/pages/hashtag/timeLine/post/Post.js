@@ -10,14 +10,16 @@ import {
   UserContainer,
   Trash,
   tagStyle,
-  mentionStyle
+  mentionStyle,
+  Box
 } from "./styles";
+import Comments from "../comments/main/Comments";
 import { IconsContainer, Pencil } from "./styles";
 import { ReactTagify } from "react-tagify";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
-  let { id, userId, username, pictureUrl, postUrl, likes } = data;
+  let { id, userId, username, pictureUrl, postUrl, likes, isAuthor } = data;
   const { title, image, description } = data;
   const postText = useRef(data.postText);
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -28,7 +30,8 @@ export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
   const [loading, setLoading] = useState(false);
   const { global } = useGlobal();
   const inputRef = useRef(null);
-
+  const [commentsBox, setCommentsBox] = useState(false);
+  const [comments, setComments] = useState(data.comments);
   const navigate = useNavigate();
 
   function sendToHashPage(hash) {
@@ -76,13 +79,15 @@ export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
 
     return (
       <Input
-        eventKey={key}
+        onKeyUp={key}
         reference={inputRef}
         value={comment}
         onChange={setComment}
         height="auto"
         padding="4px 9px"
         loading={loading}
+        font='normal 400 16px "Lato", sans-serif'
+        color="#4C4C4C"
       />
     );
   }
@@ -102,34 +107,44 @@ export default function Post({ data, hashtagPosts, setHashtagPosts, index }) {
   }
 
   return (
-    <Container>
-      <User
-        picture={pictureUrl}
-        likes={likes}
-        id={id}
-        index={index}
-        userId={userId}
-      />
-      <UserContainer>
-        <span>
-          <h2>{username}</h2>
-          {DeleteAndEdit()}
-        </span>
-        {hanleComment()}
-        <LinkPreview
-          url={postUrl}
-          image={image}
-          description={description}
-          title={title}
-        />
-        <Dialog
-          modalIsOpen={modalIsOpen}
-          setIsOpen={setIsOpen}
-          hashtagPosts={hashtagPosts}
-          setHashtagPosts={setHashtagPosts}
+    <Box id="Box">
+      <Container>
+        <User
+          picture={pictureUrl}
+          likes={likes}
           id={id}
+          index={index}
+          userId={userId}
+          num={comments?.length}
+          setCommentsBox={setCommentsBox}
         />
-      </UserContainer>
-    </Container>
+        <UserContainer>
+          <span>
+            <h2>{username}</h2>
+            {DeleteAndEdit()}
+          </span>
+          {hanleComment()}
+          <LinkPreview
+            url={postUrl}
+            image={image}
+            description={description}
+            title={title}
+          />
+          <Dialog
+            modalIsOpen={modalIsOpen}
+            setIsOpen={setIsOpen}
+            hashtagPosts={hashtagPosts}
+            setHashtagPosts={setHashtagPosts}
+            id={id}
+          />
+        </UserContainer>
+      </Container>
+      <Comments
+        commentsBox={commentsBox}
+        postId={id}
+        comments={comments}
+        setComments={setComments}
+      />
+    </Box>
   );
 }

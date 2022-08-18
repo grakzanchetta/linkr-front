@@ -9,13 +9,21 @@ const Container = styled.div`
   border-radius: 16px;
   padding: 20px;
   display: flex;
+  position: relative;
+  width: 100%;
   @media (max-width: 375px) {
     width: 100vw;
   }
 `;
 
+const Box = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
 const UserContainer = styled.div`
-  width: 34.93vw;
+  width: 77%;
   display: flex;
   gap: 7px;
   flex-direction: column;
@@ -164,5 +172,6 @@ export {
   buttonStyle1,
   buttonStyle2,
   tagStyle,
-  mentionStyle
+  mentionStyle,
+  Box
 };
