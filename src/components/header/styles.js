@@ -3,7 +3,7 @@ import { IoChevronDown } from "react-icons/io5";
 
 const Container = styled.header`
   width: 100vw;
-  max-height:75px;
+  max-height: 75px;
   background-color: #151515;
   display: flex;
   justify-content: space-between;
@@ -12,6 +12,7 @@ const Container = styled.header`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 2;
 
   h1 {
     font: normal 700 49px "Passion One", cursive;
