@@ -3,10 +3,14 @@ import { useGlobal } from "../../../../context/globalContext";
 import Likes from "../post/Likes";
 import { Comments } from "../../../home/timeLine/user/styles";
 import { IconComment } from "../../../home/timeLine/user/styles";
+import { Retweet } from "../post/styles";
 import NOT_FOUND from "../../../../assets/images/404.jpg";
 import { Container } from "./styles";
 
-function User({ picture, likes, id, index, userId, num, setCommentsBox }) {
+function User(props) {
+  let { picture, likes, id, index, userId, num, setComments, rePost } = props;
+  const { setModal } = props;
+
   const { global } = useGlobal();
   const navigate = useNavigate();
 
@@ -25,10 +29,20 @@ function User({ picture, likes, id, index, userId, num, setCommentsBox }) {
         onClick={redirect}
       />
       {hanleLikes(likes, id, index)}
-      <Comments onClick={() => setCommentsBox(prev => !prev)}>
-        <IconComment />
-        <h6>{num} comments</h6>
-      </Comments>
+      {rePost && num !== undefined ? (
+        <>
+          <Comments onClick={() => setComments(prev => !prev)}>
+            <IconComment />
+            <h6>{num} comments</h6>
+          </Comments>
+          <Comments onClick={() => setModal(true)}>
+            <Retweet />
+            <h6>{rePost} re-post</h6>
+          </Comments>
+        </>
+      ) : (
+        ""
+      )}
     </Container>
   );
 }

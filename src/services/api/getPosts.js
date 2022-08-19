@@ -21,25 +21,30 @@ export default function getPosts(global, setGlobal, setPosts) {
     .then(([resPosts, resUsers, resUser]) => {
       global.users = resUsers.data;
 
-      let posts = [];
+      // let posts = [];
+
+      console.log(resPosts.data);
 
       if (resUser !== undefined) setGlobal({ ...global, user: resUser.data });
 
-      for (let follow of resPosts.data) {
-        posts = [...posts, ...follow.posts];
-      }
+      // for (let follow of resPosts.data) {
+      //   (follow);
+      //   posts = [...posts, follow];
+      // }
 
-      if (resPosts.data.length === 0)
-        return setPosts("You don't follow anyone yet. Search for new friends!");
+      // if (resPosts.data.length === 0)
+      //   return setPosts("You don't follow anyone yet. Search for new friends!");
 
-      if (posts.length === 0)
-        return setPosts("No posts found from your friends");
+      // if (posts.length === 0)
+      //   return setPosts("No posts found from your friends");
 
-      setPosts(posts);
+      setPosts(resPosts.data);
     })
-    .catch(() =>
+    .catch(err => {
+      console.log(err);
+
       alert(
         "An error occured while trying to fetch the posts, please refresh the page"
-      )
-    );
+      );
+    });
 }

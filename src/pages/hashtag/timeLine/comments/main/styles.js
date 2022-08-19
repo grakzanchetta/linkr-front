@@ -5,14 +5,13 @@ const Container = styled.div`
   height: auto;
   max-height: 300px;
   overflow-y: auto;
+  display: ${props => props.visible.display};
   margin-top: ${props => props.visible.marginTop};
-  visibility: ${props => props.visible.visibility};
   transition: all 200ms;
   padding-top: 50px;
   padding-bottom: 25px;
   background-color: #1e1e1e;
   border-radius: 16px;
-  display: flex;
   flex-direction: column;
   align-items: center;
 
