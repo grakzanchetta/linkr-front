@@ -7,10 +7,9 @@ function Comments({ commentsBox, postId, comments, setComments }) {
   const { global } = useGlobal();
 
   const visible = () => {
-    if (commentsBox === true)
-      return { visibility: "visible", marginTop: "-50px" };
+    if (commentsBox === true) return { display: "flex", marginTop: "-50px" };
 
-    return { visibility: "hidden", marginTop: "-150px" };
+    return { display: "none", marginTop: "-150px" };
   };
 
   return (

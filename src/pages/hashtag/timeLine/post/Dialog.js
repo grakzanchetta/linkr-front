@@ -2,12 +2,15 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { useGlobal } from "../../../../context/globalContext";
 import deletePost from "../../../../services/api/deletePost";
+import createRePost from "../../../../services/api/createRePost";
 import { RotatingLines } from "react-loader-spinner";
 import { modalStyle, divStyle, buttonStyle1, buttonStyle2 } from "./styles";
 
 const loadingSpinner = <RotatingLines strokeColor="#fff" width="120" />;
 
-function Dialog({ modalIsOpen, setIsOpen, hashtagPosts, setHashtagPosts, id }) {
+function Dialog(props) {
+  const { modalIsOpen, setIsOpen, hashtagPosts, setHashtagPosts, id, msg } =
+    props;
   const [loading, setLoading] = useState(false);
   const { global } = useGlobal();
   Modal.setAppElement("#modal");
@@ -17,18 +20,24 @@ function Dialog({ modalIsOpen, setIsOpen, hashtagPosts, setHashtagPosts, id }) {
 
     setLoading(true);
 
-    deletePost(id, global, hashtagPosts, setHashtagPosts);
+    if (msg !== undefined) {
+      createRePost(global, id, setIsOpen);
+    } else {
+      deletePost(id, global, hashtagPosts, setHashtagPosts);
+    }
   }
 
   const contentModal = (
     <>
-      <h6>Are you sure you want to delete this post?</h6>
+      <h6>
+        {msg === undefined ? "Are you sure you want to delete this post?" : msg}
+      </h6>
       <div style={divStyle}>
         <button style={buttonStyle1} onClick={() => setIsOpen(false)}>
-          No, go back
+          {msg === undefined ? "No, go back" : "No, cancel"}
         </button>
         <button style={buttonStyle2} onClick={delPost}>
-          Yes, delete it
+          {msg === undefined ? "Yes, delete it" : "Yes, share!"}
         </button>
       </div>
     </>

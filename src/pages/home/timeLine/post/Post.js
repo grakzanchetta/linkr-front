@@ -6,7 +6,7 @@ import Dialog from "./Dialog";
 import Input from "../../../../components/input/Input";
 import editPost from "../../../../services/api/editPost";
 import { Container, UserContainer, Trash, Box, tagStyle } from "./styles";
-import { mentionStyle } from "./styles";
+import { mentionStyle, RePost, Retweet } from "./styles";
 import { IconsContainer, Pencil } from "./styles";
 import { ReactTagify } from "react-tagify";
 import { useNavigate } from "react-router-dom";
@@ -14,9 +14,10 @@ import Comments from "../comments/main/Comments";
 
 export default function Post({ data, posts, setPosts, index }) {
   let { id, userId, username, pictureUrl, postUrl, likes, isAuthor } = data;
-  const { title, image, description } = data;
+  const { title, image, description, rePost, rePostCount } = data;
   const postText = useRef(data.postText);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [modal, setModal] = useState(false);
   const [comment, setComment] = useState(
     postText.current === null ? "" : postText.current
   );
@@ -102,6 +103,14 @@ export default function Post({ data, posts, setPosts, index }) {
 
   return (
     <Box>
+      {rePost !== null ? (
+        <RePost>
+          <Retweet /> Re-posted by {rePost}
+        </RePost>
+      ) : (
+        ""
+      )}
+
       <Container>
         <User
           picture={pictureUrl}
@@ -110,7 +119,9 @@ export default function Post({ data, posts, setPosts, index }) {
           index={index}
           userId={userId}
           num={comments?.length}
-          setCommentsBox={setCommentsBox}
+          setComments={setCommentsBox}
+          rePost={rePostCount}
+          setModal={setModal}
         />
         <UserContainer>
           <span>
@@ -123,6 +134,15 @@ export default function Post({ data, posts, setPosts, index }) {
             image={image}
             description={description}
             title={title}
+          />
+          <Dialog
+            modalIsOpen={modal}
+            setIsOpen={setModal}
+            posts={posts}
+            setPosts={setPosts}
+            id={id}
+            msg="Do you want to re-post
+            this link?"
           />
           <Dialog
             modalIsOpen={modalIsOpen}

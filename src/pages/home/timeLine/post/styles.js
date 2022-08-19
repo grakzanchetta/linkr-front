@@ -3,6 +3,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { FaPencilAlt } from "react-icons/fa";
+import { FaRetweet } from "react-icons/fa";
 
 const Container = styled.div`
   background-color: #171717;
@@ -15,6 +16,25 @@ const Container = styled.div`
 const Box = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const Retweet = styled(FaRetweet)`
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+`;
+
+const RePost = styled.div`
+  width: 100%;
+  padding: 7px 13px;
+  height: 100px;
+  margin-bottom: -65px;
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  font: normal 400 14px "Lato", sans-serif;
+  color: #ffffff;
+  display: flex;
+  gap: 10px;
 `;
 
 const UserContainer = styled.div`
@@ -168,5 +188,7 @@ export {
   buttonStyle2,
   tagStyle,
   mentionStyle,
-  Box
+  Box,
+  Retweet,
+  RePost
 };
